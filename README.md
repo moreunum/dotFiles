@@ -25,3 +25,15 @@
   * open source file, ycm should prompt loading of .ycm_extra_conf.py
     * run :YcmDiags to check for errors
     * can sometimes fix errors with :YcmCompleter FixIt
+  * can use compile_commands.json by putting path to the file in the .ycm_extra_conf file, but I'm having problems getting it to work
+    * http://wiki.yangleo.me/2013/10/27/YouCompleteMe-installation-and-configurations.html
+* rtags
+  * install: https://github.com/Andersbakken/rtags
+    * follow build instructions. Requires clang-devel and llvm-devel packages.
+  * run rtags/bin/rdm in the background
+  * Use cmake to generate compile_commands.json for the project
+  * run rtags/bin/rc -J /path/to/compile_commands.json
+    * this feeds the cmake build instructions into the rdm program
+    * can connect to rdm's stdout and see what it's doing
+  * install vim plugin with vundle: https://github.com/lyuts/vim-rtags
+* ag -g <file name text> - search for file names
