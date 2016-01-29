@@ -50,6 +50,9 @@ set wildignorecase
 set rtp+=~/.fzf
 nmap <C-t> :FZF! <CR>
 
+" YCM - don't show preview window at top of screen
+set completeopt-=preview
+
 " vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required

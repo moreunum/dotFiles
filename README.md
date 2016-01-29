@@ -25,8 +25,10 @@
   * open source file, ycm should prompt loading of .ycm_extra_conf.py
     * run :YcmDiags to check for errors
     * can sometimes fix errors with :YcmCompleter FixIt
-  * can use compile_commands.json by putting path to the file in the .ycm_extra_conf file, but I'm having problems getting it to work
+  * can use compile_commands.json by putting path to the file in the .ycm_extra_conf file
     * http://wiki.yangleo.me/2013/10/27/YouCompleteMe-installation-and-configurations.html
+  * Seems to sometimes take a little bit of fiddling to get tab suggestions for members of existing code.
+  * when using YCM on the rtags project, had some compiler errors in one of the files (missing includes?)
 * rtags
   * install: https://github.com/Andersbakken/rtags
     * follow build instructions. Requires clang-devel and llvm-devel packages.
