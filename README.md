@@ -39,3 +39,29 @@
     * can connect to rdm's stdout and see what it's doing
   * install vim plugin with vundle: https://github.com/lyuts/vim-rtags
 * ag -g <file name text> - search for file names
+
+code analysis:
+* identify major patterns used
+* identify important threads
+* mind map drawing of related stuff
+	* in addition to block diagrams
+	* maybe start with most edited files and most called functions?
+* create a glossary
+* deliverables while learning
+	* update existing documentation before updating code
+	* write unit tests
+	* write integration tests
+	* automate existing integration tests?
+* identify third-party libraries
+	* what is the purpose of each?
+* focus on using the app first before learning the code
+	* if a library, make tests to use it
+* locate the following components
+	* put these in the mind map
+	* startup code and entry point
+		* trace this first with debugger
+	* shutdown/cleanup code
+	* configuration code
+		* where is config stored?
+	* runtime data store and major data structures
+	* user interface code
