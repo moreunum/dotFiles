@@ -111,12 +111,9 @@ command Rr call rtags#ReindexFile()
 command Rl call rtags#ProjectList()
 command Rw call rtags#RenameSymbolUnderCursor()
 command Rv call rtags#FindVirtuals()
-"noremap ^[6 :call rtags#CompleteAtCursor()<CR>
 
 " Remapping vim ctags to use rtags
 noremap <C-]> :Rj<CR>
-noremap <C-w><]> :RT<CR>
-
 
 " vundle
 set nocompatible              " be iMproved, required
