@@ -94,6 +94,7 @@ nmap <C-t> :FZF <CR>
 
 " YCM - don't show preview window at top of screen
 set completeopt-=preview
+let g:ycm_auto_trigger=0
 
 " vundle
 set nocompatible              " be iMproved, required
