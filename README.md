@@ -34,6 +34,7 @@
     * follow build instructions. Requires clang-devel and llvm-devel packages.
   * run rtags/bin/rdm in the background
   * Use cmake to generate compile_commands.json for the project
+    * cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .
   * run rtags/bin/rc -J /path/to/compile_commands.json
     * this feeds the cmake build instructions into the rdm program
     * can connect to rdm's stdout and see what it's doing
