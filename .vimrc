@@ -94,7 +94,29 @@ nmap <C-t> :FZF <CR>
 
 " YCM - don't show preview window at top of screen
 set completeopt-=preview
-let g:ycm_auto_trigger=0
+let g:loaded_youcompleteme = 1 "remove this to turn on YCM
+
+" rtags
+let g:rtagsUseDefaultMappings=0
+command Ri call rtags#SymbolInfo()
+command Rj call rtags#JumpTo()
+command RS call rtags#JumpTo(" ")
+command RV call rtags#JumpTo("vert")
+command RT call rtags#JumpTo("tab")
+command Rp call rtags#JumpToParent()
+command Rf call rtags#FindRefs()
+command Rn call rtags#FindRefsByName(input("Pattern? ", "", "customlist,rtags#CompleteSymbols")
+command Rs call rtags#FindSymbols(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))
+command Rr call rtags#ReindexFile()
+command Rl call rtags#ProjectList()
+command Rw call rtags#RenameSymbolUnderCursor()
+command Rv call rtags#FindVirtuals()
+"noremap ^[6 :call rtags#CompleteAtCursor()<CR>
+
+" Remapping vim ctags to use rtags
+noremap <C-]> :Rj<CR>
+noremap <C-w><]> :RT<CR>
+
 
 " vundle
 set nocompatible              " be iMproved, required
