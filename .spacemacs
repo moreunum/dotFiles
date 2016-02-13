@@ -245,7 +245,14 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (global-hl-line-mode -1) ; disable current line highlight
   )
+
+;; Notes
+;; To exit an SPC menu hit C-g
+;; To paste into emacs: enter insert mode then "shift-insert"
+;; Notes on setting config options permanently:
+  ;; http://thume.ca/howto/2015/03/07/configuring-spacemacs-a-tutorial/
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
