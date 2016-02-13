@@ -246,6 +246,7 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (global-hl-line-mode -1) ; disable current line highlight
+  (setq-default evil-escape-key-sequence "kd") ; Change default escape keys
   )
 
 ;; Notes
