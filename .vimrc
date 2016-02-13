@@ -57,7 +57,7 @@ set softtabstop=2 " Tab key creates tab 2 spaces wide
 
 " Enable search highlighting
 set hlsearch
-set incsearch
+"set incsearch
 
 " case insensitive search
 set smartcase
