@@ -23,7 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -35,6 +35,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     (c-c++ :variables c-c++-enable-clang-support t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -246,14 +247,16 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (global-hl-line-mode -1) ; disable current line highlight
-  (setq-default evil-escape-key-sequence "kd") ; Change default escape keys
+  ;(setq-default evil-escape-key-sequence "kd") ; Change default escape keys
   )
 
 ;; Notes
-;; To exit an SPC menu hit C-g
+;; To exit an SPC menu hit fd or C-g
 ;; To paste into emacs: enter insert mode then "shift-insert"
 ;; Notes on setting config options permanently:
   ;; http://thume.ca/howto/2015/03/07/configuring-spacemacs-a-tutorial/
+;; clang-completion:
+;;   * if it doesn't work, use SPC b b to look at the clang-error buffer
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

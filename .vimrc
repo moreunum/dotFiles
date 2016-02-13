@@ -94,7 +94,7 @@ nmap <C-t> :FZF <CR>
 
 " YCM - don't show preview window at top of screen
 set completeopt-=preview
-let g:loaded_youcompleteme = 1 "remove this to turn on YCM
+"let g:loaded_youcompleteme = 1 "remove this to turn on YCM
 
 " rtags
 let g:rtagsUseDefaultMappings=0
