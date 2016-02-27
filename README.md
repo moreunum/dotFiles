@@ -26,6 +26,7 @@
     * run :YcmDiags to check for errors
     * can sometimes fix errors with :YcmCompleter FixIt
   * can use compile_commands.json by putting path to the file in the .ycm_extra_conf file
+    * This is a good thing to try if the project won't build properly
     * http://wiki.yangleo.me/2013/10/27/YouCompleteMe-installation-and-configurations.html
   * Seems to sometimes take a little bit of fiddling to get tab suggestions for members of existing code.
   * when using YCM on the rtags project, had some compiler errors in one of the files (missing includes?)
@@ -40,6 +41,15 @@
     * can connect to rdm's stdout and see what it's doing
   * install vim plugin with vundle: https://github.com/lyuts/vim-rtags
 * ag -g <file name text> - search for file names
+* spacemacs
+  * GUD = grand unified debugger
+    * C-c brings up SPC window in GUD
+  * C-x k = kill buffer. Need this to exit GUD
+* conqueGdb
+  * start vim then run :ConqueGdb path/to/binary
+  * to quit, go into the gdb window and C-d then close the window
+  * get rid of gdb license: open .vim/bundle/Conque-GDB/autoload/conque_gdb.vim
+    * find the ' -f -x ' and make it ' -q -f -x '
 
 code analysis:
 * identify major patterns used
