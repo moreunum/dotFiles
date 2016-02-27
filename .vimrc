@@ -92,8 +92,9 @@ nmap <C-t> :FZF <CR>
 "  \ 'tmux_height': '60%'
 "\ })
 
-" YCM - don't show preview window at top of screen
-set completeopt-=preview
+" YCM 
+set completeopt-=preview " don't show preview window at top of screen
+let g:ycm_server_log_level = 'debug'
 "let g:loaded_youcompleteme = 1 "remove this to turn on YCM
 
 " rtags
@@ -125,8 +126,22 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'lyuts/vim-rtags'
+Plugin 'vim-scripts/Conque-GDB'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Make vim command prompt work like readline
+:cnoremap <C-a>  <Home>
+:cnoremap <C-b>  <Left>
+:cnoremap <C-f>  <Right>
+:cnoremap <C-d>  <Delete>
+:cnoremap <M-b>  <S-Left>
+:cnoremap <M-f>  <S-Right>
+:cnoremap <M-d>  <S-right><Delete>
+:cnoremap <Esc>b <S-Left>
+:cnoremap <Esc>f <S-Right>
+:cnoremap <Esc>d <S-right><Delete>
+:cnoremap <C-g>  <C-c>
 
 " show the command that was typed (vundle stuff turns this off)
 set showcmd
