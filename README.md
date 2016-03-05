@@ -118,9 +118,9 @@ code analysis:
     export LD=clang++
     export CC=clang
     export CXX=clang++
-    export CFLAGS="-fsanitize=thread -O2 -fPIE"
-    export CXXFLAGS="-fsanitize=thread -O2 -fPIE"
-    export LDFLAGS="-fsanitize=thread -O2 -fPIE"
+    export CFLAGS="-fsanitize=thread -O2"
+    export CXXFLAGS="-fsanitize=thread -O2"
+    export LDFLAGS="-fsanitize=thread -O2"
     cmake -DCMAKE_BUILD_TYPE=Debug ..
     make
     make test CTEST_OUTPUT_ON_FAILURE=true
