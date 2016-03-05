@@ -76,6 +76,17 @@ code analysis:
 		* where is config stored?
 	* runtime data store and major data structures
 	* user interface code
+* clang static analyzer:
+  * yum install clang-analyzer
+  * add ccc-analayzer location to PATH (/usr/libexec/clang/...)
+  * export CCC_CC=clang
+    export CCC_CXX=clang++
+    export CC=ccc-analyzer
+    export CXX=c++-analyzer
+    export LD=clang++
+  * cmake -DCMAKE_BUILD_TYPE=Debug ..
+  * make
+  * should see "warning generated"
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
