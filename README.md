@@ -64,6 +64,11 @@
 * clang:
   * show compiler flags: clang -cc1 --help
   * https://github.com/google/sanitizers
+* sanitizer blacklist to ignore third-party files/functions like gtest:
+    export CXXFLAGS="$CXXFLAGS -fsanitize-blacklist=blacklist.txt"  
+    export CFLAGS="$CFLAGS -fsanitize-blacklist=blacklist.txt"  
+    export LDFLAGS="$LDFLAGS -fsanitize-blacklist=blacklist.txt"  
+  * http://clang.llvm.org/docs/SanitizerSpecialCaseList.html
 * clang address sanitizer:
     export LD=clang++  
     export CC=clang  
