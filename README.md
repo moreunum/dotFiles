@@ -79,22 +79,37 @@ code analysis:
 * clang static analyzer:
   * yum install clang-analyzer
   * add ccc-analayzer location to PATH (/usr/libexec/clang/...)
-  * export CCC_CC=clang
+    export CCC_CC=clang
     export CCC_CXX=clang++
     export CC=ccc-analyzer
     export CXX=c++-analyzer
     export LD=clang++
-  * cmake -DCMAKE_BUILD_TYPE=Debug ..
-  * make
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    make
   * should see "warning generated"
+* clang:
+  * show compiler flags: clang -cc1 --help
+  * https://github.com/google/sanitizers
 * clang address sanitizer:
-  * export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
+    export LD=clang++
+    export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
     export CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
     export LDFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
     export ASAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
     export LLVM_SYMBOLIZER=$(which llvm-symbolizer)
     export ASAN_OPTIONS="detect_leaks=1:check_initialization_order=1"
-  * https://github.com/google/sanitizers
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    make
+    make test CTEST_OUTPUT_ON_FAILURE=true
+* clang memory sanitizer (can't use this with address sanitizer):
+    export LD=clang++
+    export CFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export CXXFLAGS=" -fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export LDFLAGS=" -fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export MSAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    make
+    make test CTEST_OUTPUT_ON_FAILURE=true
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
