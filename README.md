@@ -92,6 +92,8 @@ code analysis:
   * https://github.com/google/sanitizers
 * clang address sanitizer:
     export LD=clang++
+    export CC=clang
+    export CXX=clang++
     export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
     export CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
     export LDFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
@@ -103,10 +105,22 @@ code analysis:
     make test CTEST_OUTPUT_ON_FAILURE=true
 * clang memory sanitizer (can't use this with address sanitizer):
     export LD=clang++
+    export CC=clang
+    export CXX=clang++
     export CFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export CXXFLAGS=" -fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export LDFLAGS=" -fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export CXXFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export LDFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
     export MSAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    make
+    make test CTEST_OUTPUT_ON_FAILURE=true
+* clang thread sanitizer:
+    export LD=clang++
+    export CC=clang
+    export CXX=clang++
+    export CFLAGS="-fsanitize=thread -O2 -fPIE"
+    export CXXFLAGS="-fsanitize=thread -O2 -fPIE"
+    export LDFLAGS="-fsanitize=thread -O2 -fPIE"
     cmake -DCMAKE_BUILD_TYPE=Debug ..
     make
     make test CTEST_OUTPUT_ON_FAILURE=true
