@@ -107,9 +107,9 @@ code analysis:
     export LD=clang++
     export CC=clang
     export CXX=clang++
-    export CFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export CXXFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export LDFLAGS="-fsanitize=memory -fPIE -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export CFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export CXXFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
+    export LDFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
     export MSAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
     cmake -DCMAKE_BUILD_TYPE=Debug ..
     make
