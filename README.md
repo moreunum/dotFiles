@@ -87,6 +87,14 @@ code analysis:
   * cmake -DCMAKE_BUILD_TYPE=Debug ..
   * make
   * should see "warning generated"
+* clang address sanitizer:
+  * export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
+    export CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
+    export LDFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
+    export ASAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
+    export LLVM_SYMBOLIZER=$(which llvm-symbolizer)
+    export ASAN_OPTIONS="detect_leaks=1:check_initialization_order=1"
+  * https://github.com/google/sanitizers
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
