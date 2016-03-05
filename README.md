@@ -50,6 +50,55 @@
   * to quit, go into the gdb window and C-d then close the window
   * get rid of gdb license: open .vim/bundle/Conque-GDB/autoload/conque_gdb.vim
     * find the ' -f -x ' and make it ' -q -f -x '
+* clang static analyzer:
+  * yum install clang-analyzer
+  * add ccc-analayzer location to PATH (/usr/libexec/clang/...)
+    export CCC_CC=clang
+    export CCC_CXX=clang++
+    export CC=ccc-analyzer
+    export CXX=c++-analyzer
+    export LD=clang++
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    make
+  * should see "warning generated"
+* clang:
+  * show compiler flags: clang -cc1 --help
+  * https://github.com/google/sanitizers
+* clang address sanitizer:
+    export LD=clang++  
+    export CC=clang  
+    export CXX=clang++  
+    export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"  
+    export CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"  
+    export LDFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"  
+    export ASAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)  
+    export LLVM_SYMBOLIZER=$(which llvm-symbolizer)  
+    export ASAN_OPTIONS="detect_leaks=1:check_initialization_order=1"  
+    cmake -DCMAKE_BUILD_TYPE=Debug ..  
+    make  
+    make test CTEST_OUTPUT_ON_FAILURE=true  
+* clang memory sanitizer (can't use this with address sanitizer):
+    export LD=clang++  
+    export CC=clang  
+    export CXX=clang++  
+    export CFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"  
+    export CXXFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"  
+    export LDFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"  
+    export MSAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)  
+    cmake -DCMAKE_BUILD_TYPE=Debug ..  
+    make  
+    make test CTEST_OUTPUT_ON_FAILURE=true  
+* clang thread sanitizer:
+    export LD=clang++  
+    export CC=clang  
+    export CXX=clang++  
+    export CFLAGS="-fsanitize=thread -O2"  
+    export CXXFLAGS="-fsanitize=thread -O2"  
+    export LDFLAGS="-fsanitize=thread -O2"  
+    cmake -DCMAKE_BUILD_TYPE=Debug ..  
+    make  
+    make test CTEST_OUTPUT_ON_FAILURE=true  
+
 
 code analysis:
 * identify major patterns used
@@ -76,54 +125,6 @@ code analysis:
 		* where is config stored?
 	* runtime data store and major data structures
 	* user interface code
-* clang static analyzer:
-  * yum install clang-analyzer
-  * add ccc-analayzer location to PATH (/usr/libexec/clang/...)
-    export CCC_CC=clang
-    export CCC_CXX=clang++
-    export CC=ccc-analyzer
-    export CXX=c++-analyzer
-    export LD=clang++
-    cmake -DCMAKE_BUILD_TYPE=Debug ..
-    make
-  * should see "warning generated"
-* clang:
-  * show compiler flags: clang -cc1 --help
-  * https://github.com/google/sanitizers
-* clang address sanitizer:
-    export LD=clang++
-    export CC=clang
-    export CXX=clang++
-    export CFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
-    export CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
-    export LDFLAGS="-fsanitize=address -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls"
-    export ASAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
-    export LLVM_SYMBOLIZER=$(which llvm-symbolizer)
-    export ASAN_OPTIONS="detect_leaks=1:check_initialization_order=1"
-    cmake -DCMAKE_BUILD_TYPE=Debug ..
-    make
-    make test CTEST_OUTPUT_ON_FAILURE=true
-* clang memory sanitizer (can't use this with address sanitizer):
-    export LD=clang++
-    export CC=clang
-    export CXX=clang++
-    export CFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export CXXFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export LDFLAGS="-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -O1"
-    export MSAN_SYMBOLIZER_PATH=$(which llvm-symbolizer)
-    cmake -DCMAKE_BUILD_TYPE=Debug ..
-    make
-    make test CTEST_OUTPUT_ON_FAILURE=true
-* clang thread sanitizer:
-    export LD=clang++
-    export CC=clang
-    export CXX=clang++
-    export CFLAGS="-fsanitize=thread -O2"
-    export CXXFLAGS="-fsanitize=thread -O2"
-    export LDFLAGS="-fsanitize=thread -O2"
-    cmake -DCMAKE_BUILD_TYPE=Debug ..
-    make
-    make test CTEST_OUTPUT_ON_FAILURE=true
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
