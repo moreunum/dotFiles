@@ -103,33 +103,32 @@
     cmake -DCMAKE_BUILD_TYPE=Debug ..  
     make  
     make test CTEST_OUTPUT_ON_FAILURE=true  
-
-
-code analysis:
-* identify major patterns used
-* identify important threads
-* mind map drawing of related stuff
-	* in addition to block diagrams
-	* maybe start with most edited files and most called functions?
-* create a glossary
-* deliverables while learning
-	* update existing documentation before updating code
-	* write unit tests
-	* write integration tests
-	* automate existing integration tests?
-* identify third-party libraries
-	* what is the purpose of each?
-* focus on using the app first before learning the code
-	* if a library, make tests to use it
-* locate the following components
-	* put these in the mind map
-	* startup code and entry point
-		* trace this first with debugger
-	* shutdown/cleanup code
-	* configuration code
-		* where is config stored?
-	* runtime data store and major data structures
-	* user interface code
+* code analysis:
+  * doxygen with graphviz
+  * identify major patterns used
+  * identify important threads
+  * mind map drawing of related stuff
+    * in addition to block diagrams
+    * maybe start with most edited files and most called functions?
+  * create a glossary
+  * deliverables while learning
+    * update existing documentation before updating code
+    * write unit tests
+    * write integration tests
+    * automate existing integration tests?
+  * identify third-party libraries
+    * what is the purpose of each?
+  * focus on using the app first before learning the code
+    * if a library, make tests to use it
+  * locate the following components
+    * put these in the mind map
+    * startup code and entry point
+      * trace this first with debugger
+    * shutdown/cleanup code
+    * configuration code
+      * where is config stored?
+    * runtime data store and major data structures
+    * user interface code
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
