@@ -23,6 +23,9 @@
   * C-x 2 or 2 = open splits
 * minibuffer: M-x
 * paste into terminal: shift+insert
+* show hidden characters: whitespace-mode
+* block comment: M-;
+* list active modes: describe-mode
 * motion
   * scroll down: C-v
   * scroll up: M-v
