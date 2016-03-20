@@ -29,6 +29,7 @@
 * reload .emacs: load-file
 * list active modes: describe-mode
 * diff files: ediff
+* turn off line wrap: toggle-truncate-lines
 * motion
   * scroll down: C-v
   * scroll up: M-v

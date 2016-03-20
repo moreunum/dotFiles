@@ -38,16 +38,19 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; helm
+(helm-mode 1) ; turn on helm
+
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
 (menu-bar-mode -1) ; turn off menu bar (useless?)
 (load-theme 'wombat) ; color theme
 (visual-line-mode 1) ; better line wrapping
-(eyebrowse-mode t)
-(eyebrowse-setup-opinionated-keys)
+
+;; (eyebrowse-mode t)
+;; (eyebrowse-setup-opinionated-keys)
 
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
-;; (global-evil-tabs-mode 1) ; evil-tabs (shows tabs in every window...)
 
 ;; (setq indent-tabs-mode nil) ; TAB inserts spaces
 ;; (setq tab-width 4)
@@ -58,5 +61,4 @@
 ; avy
 ; key-chord
 ; smooth-scrolling
-; evil-tabs
 ; eyebrowse
