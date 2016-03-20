@@ -16,6 +16,7 @@
 * help
   * what does a command do? C-h k, then the key
   * what does elisp function do? C-h f
+  * what does elisp variable do? C-h v
 * windows (splits)
   * C-x 1 = close other splits
   * C-x 0 = close particular split
@@ -30,6 +31,8 @@
 * list active modes: describe-mode
 * diff files: ediff
 * turn off line wrap: toggle-truncate-lines
+* debugging
+  * must run gdb-many-windows with -i=mi
 * motion
   * scroll down: C-v
   * scroll up: M-v
@@ -49,11 +52,18 @@
 * plugins
   * helm
   * projectile
-  * avy
   * rtags
-  * ycm, cedet, company mode, irony mode, clang-tags
-  * helm-gtags
+  * completion:
+    * not sure: rtags does completion?
+    * best: ycm?
+    * next best? irony-mode w/ company or auto-complete
+    * other: cedet, clang-tags, helm-gtags
+  * fiplr? may be obsolete with helm/projectile
+  * flycheck? (maybe obsolete by ycm)
   * function-args
-  * emacs gdb many windows
+  * emacs gdb many windows - figure this out
   * emacs-dbgr = other languages
   * magit
+  * guide-key
+  * powerline?
+  * evil-multiedit
