@@ -11,5 +11,3 @@ fi
 # User specific aliases and functions
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-alias ec="emacsclient"
