@@ -119,15 +119,6 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-; misc
-(electric-indent-mode -1) ; turn off auto-indent
-(menu-bar-mode -1) ; turn off menu bar (useless?)
-(load-theme 'wombat) ; color theme
-(visual-line-mode 1) ; better line wrapping
-(show-paren-mode t) ; show matching parenthesis
-(setq gdb-many-windows t) ; graphical GDB
-(setq gdb-show-main t) ; show main function on GDB startup
-
 ; remove minor mode clutter from modeline
 (require 'rich-minority)
 (rich-minority-mode 1)
@@ -136,6 +127,15 @@
 ; turn on perspective (to replace vim tabs)
 (require 'perspective)
 (persp-mode 1)
+
+; misc
+(electric-indent-mode -1) ; turn off auto-indent
+(menu-bar-mode -1) ; turn off menu bar (useless?)
+(load-theme 'wombat) ; color theme
+(visual-line-mode 1) ; better line wrapping
+(show-paren-mode t) ; show matching parenthesis
+(setq gdb-many-windows t) ; graphical GDB
+(setq gdb-show-main t) ; show main function on GDB startup
 
 ;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
 
