@@ -28,7 +28,6 @@
 ;                           ("http" . "proxy.work.com:911")))
 
 ; evil remaps ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ; remap Esc
 (setq key-chord-two-keys-delay 0.1)
 (key-chord-define evil-insert-state-map "kd" 'evil-normal-state)
@@ -47,7 +46,6 @@
 
 ; remap goto marker
 (define-key evil-normal-state-map (kbd "'") 'evil-goto-mark)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -111,7 +109,6 @@
 
 (helm-autoresize-mode 1)
 (helm-mode 1) ; turn on helm
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; projectile
@@ -127,6 +124,11 @@
 ; turn on perspective (to replace vim tabs)
 (require 'perspective)
 (persp-mode 1)
+
+; company mode
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.2)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
@@ -165,3 +167,4 @@
 ; perspective (from marmalade repo)
 ; rich-minority
 ; color-theme-approximate (unused)
+; company

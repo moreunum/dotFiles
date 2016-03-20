@@ -61,6 +61,8 @@
     * eyebrows: M-0 through M-9, gt, gT
     * winner mode
       * M-x winner mode, C-c <left>, C-c <right>
+* company mode
+  * M-n, M-p, tab, return
 * terminology
   * emacs window = vim split
   * emacs buffer = vim buffer
@@ -70,8 +72,8 @@
   * helm integration with evil?
     * helm with find/locate = similar to fzf
     * helm-ag - how to use this
-    * fzf.el (if helm-do-ag is insufficient)
   * projectile and helm
+  * fzf.el (if helm-do-ag is insufficient)
   * place all these commands under a single leader key like spacemacs
   * navigation: 
     * rtags: probably the best
@@ -79,7 +81,9 @@
       * flycheck integration
       * rtags with helm: https://github.com/Andersbakken/rtags/issues/545
         * (setq rtags-use-helm t)
-    * cedet: may not work well with large codebases
+    * cedet: 
+      * may not work well with large codebases
+      * probably just for C, not C++
     * clang-tags: very similar to rtags, but much fewer contributions...
     * helm-gtags: gnu global tags. does this work well with c++?
     * clang-ctags: like ctags but uses clang
@@ -88,19 +92,26 @@
       * spacemacs layer for reference
   * completion:
     * front-ends:
-      * company-mode
+      * company-mode: seems to be better
       * auto-complete
       * spacemacs auto-completion layer as reference for both
-    * best: emacs-ycmd = interface to ycm server
+    * rtags: may be sufficient for completion
+    * emacs-ycmd = interface to ycm server
       * company-ycmd is the front-end for completion
       * flycheck-ycmd is the front-end for errors
       * spacemacs ycmd layer as example
-    * next best? irony-mode
-      * works similarly to rtags
+    * irony-mode
+      * works similarly to ycm
+      * may stop working after a while
+      * may be easier to set up than ycm
+      * not fuzzy like ycm
+      * c++ only
       * front-end either company or autocomplete
       * errors with flycheck
       * company-irony-backend
       * company-irony-c-headers
+    * company-clang
+    * company-gtags
   * setup examples:
     * cmake-ide
     * prelude
