@@ -23,6 +23,7 @@
       inhibit-startup-message t)
 
 ; proxy
+; start emacs with --insecure to not use https
 ;(setq url-proxy-services '(("no_proxy" . "work\\.com")
 ;                           ("http" . "proxy.work.com:911")))
 
@@ -49,8 +50,74 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; helm
+; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'helm)
+(require 'helm-config)
+(require 'helm-grep)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+; rebind tab to run persistent action
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
+
+; make TAB works in terminal
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) 
+
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p t ; open helm buffer inside current window
+      helm-move-to-line-cycle-in-source t ; cycle sources
+      helm-ff-search-library-in-sexp t ; search `require' and `declare-function' sexp.
+      helm-scroll-amount 8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+
+(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
+
+(setq helm-M-x-fuzzy-match t)
+(setq helm-buffers-fuzzy-matching t)
+(setq helm-recentf-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t)
+(setq helm-imenu-fuzzy-match t)
+(setq helm-locate-fuzzy-match t)
+(setq helm-apropos-fuzzy-match t)
+(setq helm-lisp-fuzzy-completion t)
+(setq helm-file-cache-fuzzy-match t)
+
+; rebind to use helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+
+(global-set-key (kbd "C-c h x") 'helm-register)
+;; (global-set-key (kbd "C-x r j") 'jump-to-register)
+
+(define-key 'help-command (kbd "C-f") 'helm-apropos)
+(define-key 'help-command (kbd "r") 'helm-info-emacs)
+(define-key 'help-command (kbd "C-l") 'helm-locate-library)
+
+;; show minibuffer history with Helm
+(define-key minibuffer-local-map (kbd "M-p") 'helm-minibuffer-history)
+(define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
+
+(helm-autoresize-mode 1)
 (helm-mode 1) ; turn on helm
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; projectile
+(projectile-global-mode) ; turn on projectile
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
@@ -82,6 +149,9 @@
 ; evil
 ; avy
 ; key-chord
+; projectile
+; helm
+; helm-projectile
 ; smooth-scrolling
 ; eyebrowse (unused)
 ; color-theme-approximate (unused)

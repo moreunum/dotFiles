@@ -17,6 +17,9 @@
   * what does a command do? C-h k, then the key
   * what does elisp function do? C-h f
   * what does elisp variable do? C-h v
+  * how to remap key? use C-h k then the command
+  * did .emacs load? C-h e
+  * reload .emacs: eval-buffer
 * windows (splits)
   * C-x 1 = close other splits
   * C-x 0 = close particular split
@@ -49,15 +52,28 @@
   * emacs window = vim split
   * emacs buffer = vim buffer
   * emacs frame = GUI tab (doesnt work in terminal)
-* plugins
-  * helm
-  * projectile
-  * rtags
+* todo:
+  * helm integration with evil?
+  * projectile and helm
+  * navigation: 
+    * rtags: probably the best
+    * cedet: may not work well with large codebases
+    * clang-tags: very similar to rtags, but much fewer contributions...
+    * helm-gtags: gnu global tags. does this work well with c++?
   * completion:
+    * best: emacs-ycmd?
+      * company-ycmd
+      * flycheck-ycmd
     * not sure: rtags does completion?
-    * best: ycm?
+      * company-rtags? might not work as well as irony...
+      * company-irony-backend
+      * company-irony-c-headers
     * next best? irony-mode w/ company or auto-complete
-    * other: cedet, clang-tags, helm-gtags
+  * setup examples:
+    * cmake-ide
+    * prelude
+    * narf emacs
+    * spacemacs as reference: packages.el
   * fiplr? may be obsolete with helm/projectile
   * flycheck? (maybe obsolete by ycm)
   * function-args
@@ -65,5 +81,8 @@
   * emacs-dbgr = other languages
   * magit
   * guide-key
-  * powerline?
+  * powerline? spaceline?
   * evil-multiedit
+  * workgroups2 vs eyebrowse?
+  * anzu
+  * helm-swoop
