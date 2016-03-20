@@ -4,20 +4,18 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-; misc
-(electric-indent-mode -1) ; turn off auto-indent
-(menu-bar-mode -1) ; turn off menu bar (useless?)
-(load-theme 'wombat) ; color theme
-(visual-line-mode 1) ; better line wrapping
+; evil-mode
+(require 'evil)
+(evil-mode 1)
 
 ; make line numbers look nice
 (require 'linum)
 (global-linum-mode 1)
 (setq linum-format "%d ")
 
-; evil-mode
-(require 'evil)
-(evil-mode 1)
+; smooth scrolling mode
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
 
 ; hide the startup message
 (setq inhibit-splash-screen t
@@ -40,6 +38,25 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; misc
+(electric-indent-mode -1) ; turn off auto-indent
+(menu-bar-mode -1) ; turn off menu bar (useless?)
+(load-theme 'wombat) ; color theme
+(visual-line-mode 1) ; better line wrapping
+(eyebrowse-mode t)
+(eyebrowse-setup-opinionated-keys)
+
+;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
+;; (global-evil-tabs-mode 1) ; evil-tabs (shows tabs in every window...)
+
 ;; (setq indent-tabs-mode nil) ; TAB inserts spaces
 ;; (setq tab-width 4)
 ;; (setq c-basic-offset 2)
+
+; installed packages:
+; evil
+; avy
+; key-chord
+; smooth-scrolling
+; evil-tabs
+; eyebrowse
