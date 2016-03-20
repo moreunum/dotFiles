@@ -25,6 +25,7 @@
 * paste into terminal: shift+insert
 * show hidden characters: whitespace-mode
 * block comment: M-;
+* reload .emacs: load-file
 * list active modes: describe-mode
 * motion
   * scroll down: C-v
@@ -45,3 +46,4 @@
   * function-args
   * emacs gdb many windows
   * emacs-dbgr = other languages
+  * magit
