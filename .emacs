@@ -128,6 +128,15 @@
 (setq gdb-many-windows t) ; graphical GDB
 (setq gdb-show-main t) ; show main function on GDB startup
 
+; remove minor mode clutter from modeline
+(require 'rich-minority)
+(rich-minority-mode 1)
+(setf rm-blacklist "")
+
+; turn on perspective (to replace vim tabs)
+(require 'perspective)
+(persp-mode 1)
+
 ;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
 
 ;; (eyebrowse-mode t)
@@ -153,5 +162,6 @@
 ; helm
 ; helm-projectile
 ; smooth-scrolling
-; eyebrowse (unused)
+; perspective (from marmalade repo)
+; rich-minority
 ; color-theme-approximate (unused)

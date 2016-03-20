@@ -41,41 +41,71 @@
   * scroll up: M-v
   * search: C-s
   * select: C-spc
-* saving window layouts
-  * registers
-    * C-x r w q = save layout in register "q"
-    * C-x r j q = restore layout from register "q"
-  * eyebrows: M-0 through M-9, gt, gT
-  * winner mode:
-    * M-x winner mode, C-c <left>, C-c <right>
+* helm:
+  * while using find-file
+    * C-j to complete directory
+  * while searching buffers:
+    * C-j to show buffer in other window
+* window layouts
+  * perspective:
+  * frames
+    * create new frame: C-x 5 2
+    * cycle frames: C-x 5 o
+    * delete frame: C-x 5 0
+    * delete all other frames: C-x 5 1
+    * how to refresh frame numbers?
+  * other ways of saving window layouts (these are probably not as useful as frames)
+    * registers
+      * C-x r w q = save layout in register "q"
+      * C-x r j q = restore layout from register "q"
+    * eyebrows: M-0 through M-9, gt, gT
+    * winner mode
+      * M-x winner mode, C-c <left>, C-c <right>
 * terminology
   * emacs window = vim split
   * emacs buffer = vim buffer
   * emacs frame = GUI tab (doesnt work in terminal)
 * todo:
   * helm integration with evil?
+    * helm with find/locate = similar to fzf
+    * helm-ag - how to use this
+    * fzf.el (if helm-do-ag is insufficient)
   * projectile and helm
+  * place all these commands under a single leader key like spacemacs
   * navigation: 
     * rtags: probably the best
+      * company mode code-completion (may not be as good as ycmd or irony)
+      * flycheck integration
+      * rtags with helm: https://github.com/Andersbakken/rtags/issues/545
+        * (setq rtags-use-helm t)
     * cedet: may not work well with large codebases
     * clang-tags: very similar to rtags, but much fewer contributions...
     * helm-gtags: gnu global tags. does this work well with c++?
+    * clang-ctags: like ctags but uses clang
+  * syntax checking:
+    * flycheck
+      * spacemacs layer for reference
   * completion:
-    * best: emacs-ycmd?
-      * company-ycmd
-      * flycheck-ycmd
-    * not sure: rtags does completion?
-      * company-rtags? might not work as well as irony...
+    * front-ends:
+      * company-mode
+      * auto-complete
+      * spacemacs auto-completion layer as reference for both
+    * best: emacs-ycmd = interface to ycm server
+      * company-ycmd is the front-end for completion
+      * flycheck-ycmd is the front-end for errors
+      * spacemacs ycmd layer as example
+    * next best? irony-mode
+      * works similarly to rtags
+      * front-end either company or autocomplete
+      * errors with flycheck
       * company-irony-backend
       * company-irony-c-headers
-    * next best? irony-mode w/ company or auto-complete
   * setup examples:
     * cmake-ide
     * prelude
     * narf emacs
     * spacemacs as reference: packages.el
-  * fiplr? may be obsolete with helm/projectile
-  * flycheck? (maybe obsolete by ycm)
+  * fiplr? helm alternative using grizzl
   * function-args
   * emacs gdb many windows - figure this out
   * emacs-dbgr = other languages
