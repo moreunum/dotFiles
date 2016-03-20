@@ -20,6 +20,10 @@
   * how to remap key? use C-h k then the command
   * did .emacs load? C-h e
   * reload .emacs: eval-buffer
+* speed
+  * emacs lisp profiler
+  * garbage collector threshold
+  * turn off autosave?
 * windows (splits)
   * C-x 1 = close other splits
   * C-x 0 = close particular split
@@ -124,11 +128,15 @@
   * emacs-dbgr = other languages
   * magit
   * guide-key
-  * powerline? spaceline?
+  * smart-mode-line? powerline? spaceline?
+    * smart-mode-line can probably replace rich-minority
   * evil-multiedit
+  * company quickhelp
   * workgroups2 vs eyebrowse?
   * anzu
   * helm-swoop
   * use-package: organize packages
   * switch evil-leader to bind-map or general.el?
   * replace helm with ivy, swiper and counsel?
+  * would which-key be useful?
+  * vif: view large files in batches

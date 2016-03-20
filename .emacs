@@ -10,9 +10,9 @@
 (evil-mode 1)
 
 ; make line numbers look nice
-(require 'linum)
-(global-linum-mode 1)
-(setq linum-format "%d ")
+(require 'nlinum)
+(global-nlinum-mode 1)
+(setq nlinum-format "%d ")
 
 ; smooth scrolling mode
 (require 'smooth-scrolling)
@@ -118,6 +118,10 @@
 (helm-mode 1) ; turn on helm
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; eyebrowse
+(eyebrowse-mode t)
+(eyebrowse-setup-opinionated-keys)
+
 ; projectile
 (projectile-global-mode) ; turn on projectile
 (setq projectile-completion-system 'helm)
@@ -127,10 +131,6 @@
 (require 'rich-minority)
 (rich-minority-mode 1)
 (setf rm-blacklist "")
-
-; turn on perspective (to replace vim tabs)
-(require 'perspective)
-(persp-mode 1)
 
 ; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
@@ -153,10 +153,10 @@
 (setq gdb-many-windows t) ; graphical GDB
 (setq gdb-show-main t) ; show main function on GDB startup
 
-;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
+; low threshold = responsive, high threshold = fast
+(setq gc-cons-threshold 40000000)
 
-;; (eyebrowse-mode t)
-;; (eyebrowse-setup-opinionated-keys)
+;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
 
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
 
@@ -183,3 +183,5 @@
 ; color-theme-approximate (unused)
 ; company
 ; evil-leader
+; eyebrowse
+; nlinum
