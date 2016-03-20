@@ -77,7 +77,6 @@
     * helm with find/locate = similar to fzf
     * helm-ag - how to use this
   * projectile and helm
-  * fzf.el (if helm-do-ag is insufficient)
   * place all these commands under a single leader key like spacemacs
   * navigation: 
     * rtags: probably the best
@@ -126,12 +125,11 @@
   * emacs gdb many windows - figure this out
   * emacs-dbgr = other languages
   * magit
-  * guide-key
+    * merging with magit and ediff
   * smart-mode-line? powerline? spaceline?
     * smart-mode-line can probably replace rich-minority
   * evil-multiedit
   * company quickhelp
-  * workgroups2 vs eyebrowse?
   * anzu
   * helm-swoop
   * use-package: organize packages
@@ -139,4 +137,5 @@
   * replace helm with ivy, swiper and counsel?
   * would which-key be useful?
   * vif: view large files in batches
-  * good 256 color theme
+  * good 256 color theme that shows eyebrowse number highlight
+  * guide-key worth using?

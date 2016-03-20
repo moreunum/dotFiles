@@ -188,3 +188,5 @@
 ; evil-leader
 ; eyebrowse
 ; nlinum
+; fzf
+; cmake-mode
