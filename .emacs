@@ -48,6 +48,9 @@
 ; remap goto marker
 (define-key evil-normal-state-map (kbd "'") 'evil-goto-mark)
 
+; fzf
+(define-key evil-normal-state-map (kbd "C-t") 'fzf)
+
 ; evil leader
 (evil-leader/set-leader "s")
 (evil-leader/set-key "w" 'save-buffer)

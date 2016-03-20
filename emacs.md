@@ -73,7 +73,6 @@
   * emacs frame = GUI tab (doesnt work in terminal)
 * access remote files: tramp
 * todo:
-  * persp-projectile: integrate perspective with projectile
   * helm integration with evil?
     * helm with find/locate = similar to fzf
     * helm-ag - how to use this
@@ -140,3 +139,4 @@
   * replace helm with ivy, swiper and counsel?
   * would which-key be useful?
   * vif: view large files in batches
+  * good 256 color theme
