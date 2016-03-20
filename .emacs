@@ -52,6 +52,7 @@
 (evil-leader/set-leader "s")
 (evil-leader/set-key "w" 'save-buffer)
 (evil-leader/set-key "x" 'helm-M-x)
+; TODO: set commands for other stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -131,10 +132,17 @@
 (require 'perspective)
 (persp-mode 1)
 
-; company mode
+; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.2)
+
+; remap keys to match vim/helm/emacs
+(define-key company-active-map (kbd "C-n")
+  (lambda () (interactive) (company-complete-common-or-cycle 1)))
+(define-key company-active-map (kbd "C-p")
+  (lambda () (interactive) (company-complete-common-or-cycle -1)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent

@@ -67,6 +67,7 @@
   * emacs window = vim split
   * emacs buffer = vim buffer
   * emacs frame = GUI tab (doesnt work in terminal)
+* access remote files: tramp
 * todo:
   * persp-projectile: integrate perspective with projectile
   * helm integration with evil?
@@ -128,3 +129,6 @@
   * workgroups2 vs eyebrowse?
   * anzu
   * helm-swoop
+  * use-package: organize packages
+  * switch evil-leader to bind-map or general.el?
+  * replace helm with ivy, swiper and counsel?
