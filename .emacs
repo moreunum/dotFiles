@@ -6,6 +6,7 @@
 
 ; evil-mode
 (require 'evil)
+(global-evil-leader-mode) ; allows leader key remap (must run before evil)
 (evil-mode 1)
 
 ; make line numbers look nice
@@ -46,6 +47,11 @@
 
 ; remap goto marker
 (define-key evil-normal-state-map (kbd "'") 'evil-goto-mark)
+
+; evil leader
+(evil-leader/set-leader "s")
+(evil-leader/set-key "w" 'save-buffer)
+(evil-leader/set-key "x" 'helm-M-x)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -168,3 +174,4 @@
 ; rich-minority
 ; color-theme-approximate (unused)
 ; company
+; evil-leader
