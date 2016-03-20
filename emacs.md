@@ -66,6 +66,7 @@
   * emacs buffer = vim buffer
   * emacs frame = GUI tab (doesnt work in terminal)
 * todo:
+  * persp-projectile: integrate perspective with projectile
   * helm integration with evil?
     * helm with find/locate = similar to fzf
     * helm-ag - how to use this
