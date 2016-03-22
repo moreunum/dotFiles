@@ -107,7 +107,6 @@
 (global-set-key (kbd "C-c h o") 'helm-occur)
 
 (global-set-key (kbd "C-c h x") 'helm-register)
-;; (global-set-key (kbd "C-x r j") 'jump-to-register)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
@@ -116,6 +115,10 @@
 ;; show minibuffer history with Helm
 (define-key minibuffer-local-map (kbd "M-p") 'helm-minibuffer-history)
 (define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
+
+; allow helm ag to search symlinks and dotfiles
+;; (custom-set-variables
+;;   '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case -f --hidden"))
 
 (helm-autoresize-mode 1)
 (helm-mode 1) ; turn on helm
@@ -134,6 +137,9 @@
 (require 'rich-minority)
 (rich-minority-mode 1)
 (setf rm-blacklist "")
+
+; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
@@ -190,3 +196,4 @@
 ; nlinum
 ; fzf
 ; cmake-mode
+; flycheck

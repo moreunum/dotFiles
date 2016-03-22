@@ -50,6 +50,12 @@
     * C-j to complete directory
   * while searching buffers:
     * C-j to show buffer in other window
+  * add a space and then out-of-order additional characters to narrow the search
+  * helm-projectile-ag is really good
+  * stuck in "Emacs Command History": C-o
+  * helm-do-ag
+    * hit enter to confirm search directory, then type pattern
+    * remember separate args for searching dotfiles
 * window layouts
   * perspective:
   * frames
@@ -139,3 +145,4 @@
   * vif: view large files in batches
   * good 256 color theme that shows eyebrowse number highlight
   * guide-key worth using?
+  * undo tree
