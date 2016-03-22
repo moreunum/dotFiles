@@ -133,6 +133,9 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+; helm-flx (works more like fzf)
+(helm-flx-mode +1)
+
 ; remove minor mode clutter from modeline
 (require 'rich-minority)
 (rich-minority-mode 1)
@@ -194,6 +197,7 @@
 ; projectile
 ; helm
 ; helm-projectile
+; helm-flx
 ; smooth-scrolling
 ; perspective (from marmalade repo)
 ; rich-minority

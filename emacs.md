@@ -84,6 +84,7 @@
     * helm-ag - how to use this
   * projectile and helm
   * place all these commands under a single leader key like spacemacs
+  * compile mode (built in)
   * navigation: 
     * rtags: probably the best
       * company mode code-completion (may not be as good as ycmd or irony)
@@ -102,6 +103,7 @@
   * completion:
     * front-ends:
       * company-mode: seems to be better
+        * company-quick-help?
       * auto-complete
       * spacemacs auto-completion layer as reference for both
     * rtags: may be sufficient for completion
@@ -126,6 +128,7 @@
     * prelude
     * narf emacs
     * spacemacs as reference: packages.el
+  * diff-hl
   * fiplr? helm alternative using grizzl
   * function-args
   * emacs gdb many windows - figure this out
@@ -141,10 +144,11 @@
   * use-package: organize packages
   * switch evil-leader to bind-map or general.el?
   * replace helm with ivy, swiper and counsel?
-  * would which-key be useful?
+  * which-key vs guide-key
   * vif: view large files in batches
   * good 256 color theme that shows eyebrowse number highlight
-  * guide-key worth using?
   * undo tree
   * helm-flx
   * popwin
+  * mwe-log-commands
+  * hydra?
