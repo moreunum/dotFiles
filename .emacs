@@ -156,7 +156,7 @@
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
 (menu-bar-mode -1) ; turn off menu bar (useless?)
-(load-theme 'wombat) ; color theme
+;(load-theme 'wombat) ; color theme
 (visual-line-mode 1) ; better line wrapping
 (show-paren-mode t) ; show matching parenthesis
 (setq gdb-many-windows t) ; graphical GDB
@@ -179,6 +179,12 @@
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+(load-theme 'ample t t)
+(load-theme 'ample-flat t t)
+(load-theme 'ample-light t t)
+(enable-theme 'ample)
+;; (load-theme 'zenburn t)
+
 ; installed packages:
 ; evil
 ; avy
@@ -197,3 +203,4 @@
 ; fzf
 ; cmake-mode
 ; flycheck
+; ample theme

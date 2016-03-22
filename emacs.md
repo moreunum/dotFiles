@@ -146,3 +146,5 @@
   * good 256 color theme that shows eyebrowse number highlight
   * guide-key worth using?
   * undo tree
+  * helm-flx
+  * popwin
