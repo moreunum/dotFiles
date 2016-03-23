@@ -24,4 +24,4 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
 # emacs
-alias ec='emacsclient -nc'
+alias ec='emacsclient'

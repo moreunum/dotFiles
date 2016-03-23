@@ -63,6 +63,9 @@
 (require 'helm-config)
 (require 'helm-grep)
 
+; should make help faster
+(setq helm-quick-update t)
+
 ; rebind helm prefix
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))

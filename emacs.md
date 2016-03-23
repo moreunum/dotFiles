@@ -146,6 +146,7 @@
     * merging with magit and ediff
   * smart-mode-line? powerline? spaceline?
     * smart-mode-line can probably replace rich-minority
+  * el doc
   * evil-multiedit
   * company quickhelp
   * anzu
