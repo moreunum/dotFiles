@@ -63,22 +63,14 @@
 (require 'helm-config)
 (require 'helm-grep)
 
-;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+; rebind helm prefix
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
-; rebind tab to run persistent action
+; rebind tab to run persistent action instead of C-z
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
-
-; make TAB works in terminal
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) 
-
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
 
 (setq helm-split-window-in-side-p t ; open helm buffer inside current window
       helm-move-to-line-cycle-in-source t ; cycle sources
@@ -120,6 +112,21 @@
 ;; (custom-set-variables
 ;;   '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case -f --hidden"))
 
+(require 'helm-descbinds)
+(helm-descbinds-mode)
+
+; does this work?
+(eval-after-load 'company
+  '(progn
+     (define-key company-mode-map (kbd "C-:") 'helm-company)
+     (define-key company-active-map (kbd "C-:") 'helm-company)))
+
+(require 'helm-describe-modes)
+(global-set-key [remap describe-mode] #'helm-describe-modes)
+
+(require 'helm-fuzzier)
+(helm-fuzzier-mode 1)
+
 (helm-autoresize-mode 1)
 (helm-mode 1) ; turn on helm
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -131,6 +138,7 @@
 ; projectile
 (projectile-global-mode) ; turn on projectile
 (setq projectile-completion-system 'helm)
+(setq projectile-enable-caching t) ; refresh: projectile-invalidate-cache
 (helm-projectile-on)
 
 ; helm-flx (works more like fzf)
@@ -175,6 +183,7 @@
 (load-theme 'ample-flat t t)
 (load-theme 'ample-light t t)
 (enable-theme 'ample)
+;; (load-theme 'monokai t)
 
 ;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
 
@@ -190,14 +199,17 @@
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+; smart-mode-line
+;; (sml/setup)
+
 ; installed packages:
 ; evil
 ; avy
 ; key-chord
 ; projectile
 ; helm
-; helm-projectile
-; helm-flx
+; helm-projectile, helm-flx, helm-company, helm-descbinds, helm-describe-modes, helm-fuzzier
+; helm-proc, helm-mode-manager
 ; smooth-scrolling
 ; perspective (from marmalade repo)
 ; rich-minority
@@ -210,3 +222,4 @@
 ; cmake-mode
 ; flycheck
 ; ample theme
+; smart-mode-line

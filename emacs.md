@@ -14,12 +14,14 @@
   * open: C-x b
   * list all: C-x C-b
 * help
+  * C-h h = show all "C-h" help commands
   * what does a command do? C-h k, then the key
   * what does elisp function do? C-h f
-  * what does elisp variable do? C-h v
+  * what is the value/purpose of a variable? C-h v
   * how to remap key? use C-h k then the command
   * did .emacs load? C-h e
   * reload .emacs: eval-buffer
+  * what minor modes are running? helm-disable-minor-mode (requires helm-mode-manager)
 * speed
   * emacs lisp profiler
   * garbage collector threshold
@@ -44,6 +46,7 @@
   * scroll down: C-v
   * scroll up: M-v
   * search: C-s
+  * reverse search: C-r
   * select: C-spc
 * helm:
   * while using find-file
@@ -56,6 +59,8 @@
   * helm-do-ag
     * hit enter to confirm search directory, then type pattern
     * remember separate args for searching dotfiles
+  * tab to show docs/buffer/etc
+  * C-c ? = show helm help
 * window layouts
   * perspective:
   * frames
@@ -148,7 +153,6 @@
   * vif: view large files in batches
   * good 256 color theme that shows eyebrowse number highlight
   * undo tree
-  * helm-flx
   * popwin
   * mwe-log-commands
   * hydra?
