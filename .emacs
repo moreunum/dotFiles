@@ -185,14 +185,7 @@
 (setq rtags-completions-enabled t)
 (push 'company-rtags company-backends)
 (global-company-mode)
-(define-key c-mode-base-map (kbd "TAB") (function company-complete))
-;; (setq evil-complete-next-func 'company-complete)
-;; (define-key evil-insert-state-map (kbd "C-n") 'company-complete)
-(defun cs/evil-company-complete ()
-  (interactive)
-  (evil-complete-next)
-  (company-complete))
-(define-key evil-insert-state-map (kbd "C-n") 'cs/evil-company-complete)
+(define-key evil-insert-state-map (kbd "C-p") 'company-complete)
 
 ; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -238,7 +231,7 @@
 
 ; <tab> = tab key
 ; TAB = tab character
-;; (define-key evil-insert-state-map (kbd "TAB") "    ")
+(define-key evil-insert-state-map (kbd "TAB") "    ")
 (setq-default indent-tabs-mode nil) ; TAB inserts spaces
 ;; (setq-default tab-width 4)
 
