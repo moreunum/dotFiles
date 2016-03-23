@@ -145,7 +145,7 @@
 
 ; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.2)
 
 ; remap keys to match vim/helm/emacs
@@ -166,6 +166,9 @@
 (require 'rtags)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
+; auto-start rdm when in C/C++ source file
+(add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+(add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
 (evil-leader/set-key "d" 'rtags-find-symbol-at-point)
 (evil-leader/set-key "r" 'rtags-find-references-at-point)
 (evil-leader/set-key "c" 'rtags-rename-symbol)
@@ -176,9 +179,10 @@
 (evil-leader/set-key "RET" 'rtags-show-in-other-window)
 
 ; company-rtags
-;; (setq rtags-completions-enabled t)
-;; (push 'company-rtags company-backends)
-;; (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+(setq rtags-completions-enabled t)
+(push 'company-rtags company-backends)
+(global-company-mode)
+(define-key c-mode-base-map (kbd "TAB") (function company-complete))
 
 ; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
