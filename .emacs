@@ -143,9 +143,6 @@
 (rich-minority-mode 1)
 (setf rm-blacklist "")
 
-; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -178,10 +175,20 @@
 (evil-leader/set-key "h" 'rtags-print-class-hierarchy)
 (evil-leader/set-key "RET" 'rtags-show-in-other-window)
 
-; rtags and company
+; company-rtags
 ;; (setq rtags-completions-enabled t)
 ;; (push 'company-rtags company-backends)
 ;; (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+
+; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+; flycheck-rtags
+(require 'flycheck-rtags)
+(defun my-flycheck-rtags-setup ()
+  (flycheck-select-checker 'rtags))
+;; c-mode-common-hook is also called by c++-mode
+(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
