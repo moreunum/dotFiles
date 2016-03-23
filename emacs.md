@@ -84,6 +84,9 @@
   * emacs buffer = vim buffer
   * emacs frame = GUI tab (doesnt work in terminal)
 * access remote files: tramp
+* manually install rtags (or other packages)
+  * build and install rtags to get the .elc files
+  * copy the .el and .elc files to ~/.emacs.d/site-lisp/rtags
 * todo:
   * helm integration with evil?
     * helm with find/locate = similar to fzf

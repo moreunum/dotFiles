@@ -115,12 +115,6 @@
 (require 'helm-descbinds)
 (helm-descbinds-mode)
 
-; does this work?
-(eval-after-load 'company
-  '(progn
-     (define-key company-mode-map (kbd "C-:") 'helm-company)
-     (define-key company-active-map (kbd "C-:") 'helm-company)))
-
 (require 'helm-describe-modes)
 (global-set-key [remap describe-mode] #'helm-describe-modes)
 
@@ -164,6 +158,30 @@
   (lambda () (interactive) (company-complete-common-or-cycle -1)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; how does this work?
+;; (eval-after-load 'company
+;;   '(progn
+;;      (define-key company-mode-map (kbd "C-:") 'helm-company)
+;;      (define-key company-active-map (kbd "C-:") 'helm-company)))
+
+; rtags
+(add-to-list 'load-path "~/.emacs.d/site-lisp/rtags") ; install rtags manually
+(require 'rtags)
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+(evil-leader/set-key "d" 'rtags-find-symbol-at-point)
+(evil-leader/set-key "r" 'rtags-find-references-at-point)
+(evil-leader/set-key "c" 'rtags-rename-symbol)
+(evil-leader/set-key "p" 'rtags-location-stack-back)
+(evil-leader/set-key "n" 'rtags-location-stack-forward)
+(evil-leader/set-key "s" 'rtags-display-summary)
+(evil-leader/set-key "h" 'rtags-print-class-hierarchy)
+
+; rtags and company
+;; (setq rtags-completions-enabled t)
+;; (push 'company-rtags company-backends)
+;; (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
 (menu-bar-mode -1) ; turn off menu bar (useless?)
@@ -171,6 +189,7 @@
 (show-paren-mode t) ; show matching parenthesis
 ;; (setq gdb-many-windows t) ; graphical GDB
 (setq gdb-show-main t) ; show main function on GDB startup
+(setq auto-save-mode -1) ; turn off auto save
 
 ; make vertical divider look nicer
 (set-face-background 'vertical-border "black")
