@@ -219,7 +219,7 @@
 (enable-theme 'ample)
 ;; (load-theme 'monokai t)
 
-;(color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
+;; (color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
 
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
 
@@ -257,3 +257,4 @@
 ; flycheck
 ; ample theme
 ; smart-mode-line
+; command-log-mode

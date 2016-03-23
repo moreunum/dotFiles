@@ -22,6 +22,7 @@
   * did .emacs load? C-h e
   * reload .emacs: eval-buffer
   * what minor modes are running? helm-disable-minor-mode (requires helm-mode-manager)
+  * command-log-mode: clm/open-command-log-buffer
 * speed
   * emacs lisp profiler
   * garbage collector threshold
@@ -159,5 +160,14 @@
   * good 256 color theme that shows eyebrowse number highlight
   * undo tree
   * popwin
-  * mwe-log-commands
+  * command-log-mode (mwe-log-commands)
   * hydra?
+  * figure out tabs
+    * c-default-style
+    * c-style-alist
+  * python
+    * anaconda
+    * elpy
+    * jedi
+    * pep8
+    * pylint
