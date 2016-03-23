@@ -176,6 +176,7 @@
 (evil-leader/set-key "n" 'rtags-location-stack-forward)
 (evil-leader/set-key "s" 'rtags-display-summary)
 (evil-leader/set-key "h" 'rtags-print-class-hierarchy)
+(evil-leader/set-key "RET" 'rtags-show-in-other-window)
 
 ; rtags and company
 ;; (setq rtags-completions-enabled t)
