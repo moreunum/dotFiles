@@ -164,7 +164,6 @@
   * good 256 color theme that shows eyebrowse number highlight
   * undo tree
   * popwin
-  * command-log-mode (mwe-log-commands)
   * hydra?
   * figure out tabs
     * c-default-style

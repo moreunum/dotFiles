@@ -34,8 +34,8 @@
 
 ; use C-j and C-k to move page up/down
 (define-key evil-normal-state-map (kbd "C-k") (lambda ()
-                    (interactive)
-                    (evil-scroll-up nil)))
+            (interactive)
+            (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda ()
             (interactive)
             (evil-scroll-down nil)))
@@ -66,7 +66,7 @@
 (global-unset-key (kbd "C-x c"))
 
 ; rebind tab to run persistent action instead of C-z
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
+;(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
@@ -230,11 +230,11 @@
 
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
 
-;; (setq indent-tabs-mode nil) ; TAB inserts spaces
-;; (setq tab-width 4)
-;; (setq c-basic-offset 2)
-;; (setq-default tab-width 4 indent-tabs-mode nil)
-;; (setq-default c-basic-offset 4 c-default-style "bsd")
+; <tab> = tab key
+; TAB = tab character
+;; (define-key evil-insert-state-map (kbd "<tab>") "    ")
+(setq-default indent-tabs-mode nil) ; TAB inserts spaces
+;(setq indent-tabs-mode nil) ; TAB inserts spaces
 
 ; don't skip over wrapped lines
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
