@@ -15,19 +15,22 @@
   * list all: C-x C-b
 * help
   * C-h h = show all "C-h" help commands
-  * what does a command do? C-h k, then the key
   * what does elisp function do? C-h f
   * what is the value/purpose of a variable? C-h v
-  * how to remap key? use C-h k then the command
+  * what does key do? use C-h k then the command
   * did .emacs load? C-h e
   * reload .emacs: eval-buffer
-  * what minor modes are running? helm-disable-minor-mode (requires helm-mode-manager)
+  * list active modes: describe-mode (C-h m)
   * command-log-mode: 
     * clm/open-command-log-buffer = open the buffer
     * command-log-mode   = start logging
 * elisp
     * find-function
     * describe-variable
+    * functions that look like this: "bh/my-function"
+      * the "bh/" is just best practice to avoid function name conflicts with other packages
+    * "#'" = "sharp quote" = (function my-function)
+    * when creating function, use (interactive) if you want the function to be callable from a key command, or from M-:
 * speed
   * emacs lisp profiler
   * garbage collector threshold
@@ -42,7 +45,6 @@
 * show hidden characters: whitespace-mode
 * block comment: M-;
 * reload .emacs: load-file
-* list active modes: describe-mode
 * diff files: ediff
 * turn off line wrap: toggle-truncate-lines
 * debugging

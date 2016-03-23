@@ -66,7 +66,7 @@
 (global-unset-key (kbd "C-x c"))
 
 ; rebind tab to run persistent action instead of C-z
-;(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) 
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
@@ -143,7 +143,7 @@
 (rich-minority-mode 1)
 (setf rm-blacklist "")
 
-; company mode ;;;;;;;;;;;;;;;;;;;;;;;;;;
+; company mode
 (require 'company)
 ;; (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.2)
@@ -157,7 +157,6 @@
 ; company-flx
 (with-eval-after-load 'company
   (company-flx-mode +1))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; how does this work?
 ;; (eval-after-load 'company
@@ -187,6 +186,13 @@
 (push 'company-rtags company-backends)
 (global-company-mode)
 (define-key c-mode-base-map (kbd "TAB") (function company-complete))
+;; (setq evil-complete-next-func 'company-complete)
+;; (define-key evil-insert-state-map (kbd "C-n") 'company-complete)
+(defun cs/evil-company-complete ()
+  (interactive)
+  (evil-complete-next)
+  (company-complete))
+(define-key evil-insert-state-map (kbd "C-n") 'cs/evil-company-complete)
 
 ; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -232,9 +238,9 @@
 
 ; <tab> = tab key
 ; TAB = tab character
-;; (define-key evil-insert-state-map (kbd "<tab>") "    ")
+;; (define-key evil-insert-state-map (kbd "TAB") "    ")
 (setq-default indent-tabs-mode nil) ; TAB inserts spaces
-;(setq indent-tabs-mode nil) ; TAB inserts spaces
+;; (setq-default tab-width 4)
 
 ; don't skip over wrapped lines
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
