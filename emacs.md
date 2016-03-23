@@ -22,7 +22,9 @@
   * did .emacs load? C-h e
   * reload .emacs: eval-buffer
   * what minor modes are running? helm-disable-minor-mode (requires helm-mode-manager)
-  * command-log-mode: clm/open-command-log-buffer
+  * command-log-mode: 
+    * clm/open-command-log-buffer = open the buffer
+    * command-log-mode   = start logging
 * speed
   * emacs lisp profiler
   * garbage collector threshold
