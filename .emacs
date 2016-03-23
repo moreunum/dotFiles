@@ -179,7 +179,8 @@
 (evil-leader/set-key "r n" 'rtags-location-stack-forward)
 (evil-leader/set-key "r s" 'rtags-display-summary)
 (evil-leader/set-key "r h" 'rtags-print-class-hierarchy)
-(evil-leader/set-key "r RET" 'rtags-show-in-other-window)
+;; (evil-leader/set-key "r RET" 'rtags-show-in-other-window) ; don't need if using helm
+(setq rtags-use-helm t)
 
 ; company-rtags
 (setq rtags-completions-enabled t)

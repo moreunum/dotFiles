@@ -70,7 +70,6 @@
   * tab to show docs/buffer/etc
   * C-c ? = show helm help
 * window layouts
-  * perspective:
   * frames
     * create new frame: C-x 5 2
     * cycle frames: C-x 5 o
@@ -85,7 +84,7 @@
     * winner mode
       * M-x winner mode, C-c <left>, C-c <right>
 * company mode
-  * M-n, M-p, tab, return
+  * C-p, C-n, tab, return
 * terminology
   * emacs window = vim split
   * emacs buffer = vim buffer
@@ -96,11 +95,7 @@
   * copy the .el and .elc files to ~/.emacs.d/site-lisp/rtags
 * todo:
   * helm integration with evil?
-    * helm with find/locate = similar to fzf
     * helm-ag - how to use this
-  * projectile and helm
-  * place all these commands under a single leader key like spacemacs
-  * compile mode (built in)
   * navigation: 
     * rtags: probably the best
       * company mode code-completion (may not be as good as ycmd or irony)
