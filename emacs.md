@@ -41,6 +41,7 @@
 * diff files: ediff
 * turn off line wrap: toggle-truncate-lines
 * debugging
+  * use gud-gdb, "gdb" is probably only useful in GUI mode
   * must run gdb-many-windows with -i=mi
 * motion
   * scroll down: C-v

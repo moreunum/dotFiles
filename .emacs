@@ -169,7 +169,7 @@
 (menu-bar-mode -1) ; turn off menu bar (useless?)
 (visual-line-mode 1) ; better line wrapping
 (show-paren-mode t) ; show matching parenthesis
-(setq gdb-many-windows t) ; graphical GDB
+;; (setq gdb-many-windows t) ; graphical GDB
 (setq gdb-show-main t) ; show main function on GDB startup
 
 ; make vertical divider look nicer
