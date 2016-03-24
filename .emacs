@@ -215,26 +215,38 @@
 ;; (evil-leader/set-key "r RET" 'rtags-show-in-other-window) ; don't need if using helm
 (setq rtags-use-helm t)
 
+; ycmd
+;; (require 'ycmd)
+;; (add-hook 'after-init-hook #'global-ycmd-mode)
+;; (set-variable 'ycmd-server-command '("python" "~/installed/ycmd"))
+
 ; company-rtags
-(setq rtags-completions-enabled t)
-(push 'company-rtags company-backends)
-(global-company-mode)
-(define-key evil-insert-state-map (kbd "C-p") 'company-complete)
+;; (setq rtags-completions-enabled t)
+;; (push 'company-rtags company-backends)
+;; (global-company-mode)
+;; (define-key evil-insert-state-map (kbd "C-p") 'company-complete)
 
 ; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; flycheck-rtags
-(require 'flycheck-rtags)
-(defun my-flycheck-rtags-setup ()
-  (flycheck-select-checker 'rtags))
-;; c-mode-common-hook is also called by c++-mode
-(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+;; (require 'flycheck-rtags)
+;; (defun my-flycheck-rtags-setup ()
+;;   (flycheck-select-checker 'rtags))
+;; ;; c-mode-common-hook is also called by c++-mode
+;; (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
-; zoom-window: maximize/minimize a window like tmux
-(require 'zoom-window)
-(evil-leader/set-key "o" 'zoom-window-zoom)
-(setq zoom-window-mode-line-color "DarkGreen")
+; zoom-window (doesn't work with eyebrowse and evil-mc)
+;; (require 'zoom-window)
+;; (evil-leader/set-key "o" 'zoom-window-zoom)
+;; (setq zoom-window-mode-line-color "DarkGreen")
+
+; Maximize selected window
+(defun evil-set-width-height ()
+  (interactive)
+  (evil-window-set-height nil)
+  (evil-window-set-width nil))
+(evil-leader/set-key "o" 'evil-set-width-height)
 
 ; smart-mode-line
 (setq sml/theme 'dark)

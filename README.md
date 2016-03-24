@@ -30,6 +30,9 @@
     * http://wiki.yangleo.me/2013/10/27/YouCompleteMe-installation-and-configurations.html
   * Seems to sometimes take a little bit of fiddling to get tab suggestions for members of existing code.
   * when using YCM on the rtags project, had some compiler errors in one of the files (missing includes?)
+  * emacs-ycm
+    * recursive checkout and build ycmd into installed directory
+    * recursive checkout and build emacs-ycmd
 * rtags
   * install: https://github.com/Andersbakken/rtags
     * follow build instructions. Requires clang-devel and llvm-devel packages.
