@@ -26,6 +26,7 @@
     * command-log-mode   = start logging
 * enter customization menu: M-x "customize"
 * elisp
+    * eval prompt: M-:
     * find-function
     * describe-variable
     * functions that look like this: "bh/my-function"
@@ -45,15 +46,12 @@
   * C-x 0 = close particular split
   * C-x o = switch splits
   * C-x 2 or 2 = open splits
-* minibuffer: M-x
-* eval prompt: M-:
 * paste into terminal: shift+insert
 * show hidden characters: whitespace-mode
-* turn off highlighting: evil-nohighlight
+* turn off line wrap: toggle-truncate-lines
 * block comment: M-;
 * reload .emacs: load-file
 * diff files: ediff
-* turn off line wrap: toggle-truncate-lines
 * debugging
   * use gud-gdb, "gdb" is probably only useful in GUI mode
   * must run gdb-many-windows with -i=mi
@@ -101,8 +99,6 @@
   * build and install rtags to get the .elc files
   * copy the .el and .elc files to ~/.emacs.d/site-lisp/rtags
 * todo:
-  * helm integration with evil?
-    * helm-ag - how to use this
   * navigation: 
     * rtags: probably the best
     * cedet: 
@@ -137,41 +133,34 @@
       * company-irony-c-headers
     * company-clang
     * company-gtags
-  * setup examples:
-    * cmake-ide
-    * prelude
-    * narf emacs
-    * spacemacs as reference: packages.el
-  * diff-hl
-  * fiplr? helm alternative using grizzl
-  * function-args
-  * emacs-dbgr = other languages
+  * evil-multiedit
   * magit
     * merging with magit and ediff
     * evil-magit
-  * smart-mode-line? powerline? spaceline?
-    * smart-mode-line can probably replace rich-minority
-  * el doc
-  * evil-multiedit
-  * company quickhelp (I think this only works in GUI)
+  * diff-hl
   * anzu
-  * helm-swoop
-  * use-package: organize packages
-  * switch evil-leader to bind-map or general.el?
-  * replace helm with ivy, swiper and counsel?
-  * which-key vs guide-key
-  * vif: view large files in batches
-  * good 256 color theme that shows eyebrowse number highlight
-  * undo tree
-  * popwin
-  * hydra?
-  * figure out tabs
-    * c-default-style
-    * c-style-alist
   * python
     * anaconda
     * elpy
     * jedi
     * pep8
     * pylint
-  * sublimity
+  * undo tree
+  * helm-swoop
+  * vif: view large files in batches
+  * hydra
+  * switch evil-leader to bind-map or general.el?
+  * which-key vs guide-key
+  * use-package: organize packages
+  * popwin
+  * sublimity (needs gui?)
+  * company quickhelp (I think this only works in GUI)
+  * fiplr? helm alternative using grizzl
+  * replace helm with ivy, swiper and counsel?
+  * function-args
+  * el doc
+  * setup examples:
+    * cmake-ide
+    * prelude
+    * narf emacs
+    * spacemacs as reference: packages.el

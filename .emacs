@@ -215,6 +215,7 @@
 (evil-leader/set-key "r n" 'rtags-location-stack-forward)
 (evil-leader/set-key "r s" 'rtags-display-summary)
 (evil-leader/set-key "r h" 'rtags-print-class-hierarchy)
+(evil-leader/set-key "r v" 'rtags-find-virtuals-at-point)
 ;; (evil-leader/set-key "r RET" 'rtags-show-in-other-window) ; don't need if using helm
 (setq rtags-use-helm t)
 
@@ -248,6 +249,23 @@
 (define-key evil-insert-state-map (kbd "TAB") "    ")
 (setq-default indent-tabs-mode nil) ; TAB inserts spaces
 ;; (setq-default tab-width 4)
+
+; multiple cursors
+(require 'evil-multiedit)
+(define-key evil-normal-state-map "R" 'evil-multiedit-match-all)
+(define-key evil-visual-state-map "R" 'evil-multiedit-match-all)
+(define-key evil-motion-state-map "R" 'evil-multiedit-match-all)
+(define-key evil-normal-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
+(define-key evil-visual-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
+(define-key evil-normal-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
+(define-key evil-visual-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
+(define-key evil-multiedit-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+(define-key evil-visual-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+(define-key evil-multiedit-state-map (kbd "C-n") 'evil-multiedit-next)
+(define-key evil-multiedit-state-map (kbd "C-p") 'evil-multiedit-prev)
+(evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match) ;; example usage: ":%ie mystring"
+(evil-leader/set-key "m e" 'evil-multiedit-abort)
+(evil-leader/set-key "m r" 'evil-multiedit-restore)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
