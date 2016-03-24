@@ -31,6 +31,7 @@
       * the "bh/" is just best practice to avoid function name conflicts with other packages
     * "#'" = "sharp quote" = (function my-function)
     * when creating function, use (interactive) if you want the function to be callable from a key command, or from M-:
+    * face = font/color of text
 * speed
   * emacs lisp profiler
   * garbage collector threshold
@@ -98,10 +99,6 @@
     * helm-ag - how to use this
   * navigation: 
     * rtags: probably the best
-      * company mode code-completion (may not be as good as ycmd or irony)
-      * flycheck integration
-      * rtags with helm: https://github.com/Andersbakken/rtags/issues/545
-        * (setq rtags-use-helm t)
     * cedet: 
       * may not work well with large codebases
       * probably just for C, not C++
@@ -142,15 +139,15 @@
   * diff-hl
   * fiplr? helm alternative using grizzl
   * function-args
-  * emacs gdb many windows - figure this out
   * emacs-dbgr = other languages
   * magit
     * merging with magit and ediff
+    * evil-magit
   * smart-mode-line? powerline? spaceline?
     * smart-mode-line can probably replace rich-minority
   * el doc
   * evil-multiedit
-  * company quickhelp
+  * company quickhelp (I think this only works in GUI)
   * anzu
   * helm-swoop
   * use-package: organize packages

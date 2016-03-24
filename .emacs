@@ -23,7 +23,6 @@
 ;(setq url-proxy-services '(("no_proxy" . "work\\.com")
 ;                           ("http" . "proxy.work.com:911")))
 
-; evil remaps ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; remap Esc
 (setq key-chord-two-keys-delay 0.1)
 (key-chord-define evil-insert-state-map "kd" 'evil-normal-state)
@@ -49,11 +48,8 @@
 ; evil leader
 (evil-leader/set-leader "s")
 (evil-leader/set-key "w" 'save-buffer)
-(evil-leader/set-key "x" 'helm-M-x)
-; TODO: set commands for other stuff
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'helm)
 (require 'helm-config)
 (require 'helm-grep)
@@ -106,6 +102,8 @@
 (define-key minibuffer-local-map (kbd "M-p") 'helm-minibuffer-history)
 (define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
 
+(evil-leader/set-key "h a" 'helm-do-ag)
+
 ; allow helm ag to search symlinks and dotfiles
 ;; (custom-set-variables
 ;;   '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case -f --hidden"))
@@ -121,7 +119,7 @@
 
 (helm-autoresize-mode 1)
 (helm-mode 1) ; turn on helm
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; eyebrowse
 (eyebrowse-mode t)
@@ -135,7 +133,7 @@
 (evil-leader/set-key "p f" 'helm-projectile-find-file)
 (evil-leader/set-key "p a" 'helm-projectile-ag)
 
-; helm-flx (this is a little weird)
+; helm-flx: different sorting algorithm for helm (a little weird)
 ;; (helm-flx-mode +1)
 
 ; remove minor mode clutter from modeline
@@ -146,7 +144,7 @@
 ; company mode
 (require 'company)
 ;; (add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay 0.2)
+(setq company-idle-delay nil) ; only trigger on key-press when "nil"
 
 ; remap keys to match vim/helm/emacs
 (define-key company-active-map (kbd "C-n")
@@ -243,7 +241,7 @@
 ; smart-mode-line
 ;; (sml/setup)
 
-; installed packages:
+; installed packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil
 ; avy
 ; key-chord
@@ -264,3 +262,23 @@
 ; smart-mode-line
 ; command-log-mode
 ; company-flx
+
+; settings via menus ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; evil-magic doesn't seem to do anything
+; evil-search-mode allows retrieval of past searches
+; avy faces changes the colors to make avy more legible
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-magic (quote very-magic))
+ '(evil-search-module (quote evil-search)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(avy-lead-face-0 ((t (:background "#5180b3" :foreground "black"))))
+ '(avy-lead-face-2 ((t (:background "#f86bf3" :foreground "black")))))
