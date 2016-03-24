@@ -24,6 +24,7 @@
   * command-log-mode: 
     * clm/open-command-log-buffer = open the buffer
     * command-log-mode   = start logging
+* enter customization menu: M-x "customize"
 * elisp
     * find-function
     * describe-variable

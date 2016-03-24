@@ -62,7 +62,10 @@
 ; avy
 (define-key evil-motion-state-map (kbd "SPC") 'avy-goto-char-2)
 
-; use C-j and C-k to move page up/down
+; use C-u, C-j and C-k to move page up/down
+(define-key evil-normal-state-map (kbd "C-u") (lambda ()
+            (interactive)
+            (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-k") (lambda ()
             (interactive)
             (evil-scroll-up nil)))
