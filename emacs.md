@@ -32,6 +32,7 @@
     * "#'" = "sharp quote" = (function my-function)
     * when creating function, use (interactive) if you want the function to be callable from a key command, or from M-:
     * face = font/color of text
+    * symbols with colons ":mysymbol" are keywords that cannot be re-bound
 * speed
   * emacs lisp profiler
   * garbage collector threshold

@@ -244,7 +244,9 @@
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ; smart-mode-line
+;; (setq sml/theme 'dark)
 ;; (sml/setup)
+;; (add-hook 'after-init-hook 'sml/setup)
 
 ; installed packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil
@@ -287,4 +289,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(avy-lead-face-0 ((t (:background "#5180b3" :foreground "black"))))
- '(avy-lead-face-2 ((t (:background "#f86bf3" :foreground "black")))))
+ '(avy-lead-face-2 ((t (:background "#f86bf3" :foreground "black"))))
+ '(eyebrowse-mode-line-active ((t (:inherit default :background "color-52" :foreground "brightcyan")))))
