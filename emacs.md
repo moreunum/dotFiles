@@ -49,6 +49,7 @@
 * eval prompt: M-:
 * paste into terminal: shift+insert
 * show hidden characters: whitespace-mode
+* turn off highlighting: evil-nohighlight
 * block comment: M-;
 * reload .emacs: load-file
 * diff files: ediff

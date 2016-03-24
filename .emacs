@@ -15,9 +15,11 @@
  '(custom-safe-themes
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(evil-ex-search-persistent-highlight nil)
  '(evil-magic (quote very-magic))
  '(evil-search-module (quote evil-search))
- '(sml/name-width 25))
+ '(sml/name-width 25)
+ '(zoom-window-mode-line-color "MidnightBlue"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -137,6 +139,8 @@
 (define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
 
 (evil-leader/set-key "h a" 'helm-do-ag)
+(evil-leader/set-key "h m" 'helm-mini)
+(evil-leader/set-key "h f" 'helm-find-files)
 
 ; allow helm ag to search symlinks and dotfiles
 ;; (custom-set-variables
@@ -235,6 +239,10 @@
 (evil-leader/set-key "o" 'zoom-window-zoom)
 (setq zoom-window-mode-line-color "DarkGreen")
 
+; smart-mode-line
+(setq sml/theme 'dark)
+(sml/setup)
+
 ; <tab> = tab key
 ; TAB = tab character
 (define-key evil-insert-state-map (kbd "TAB") "    ")
@@ -276,10 +284,6 @@
 ; don't skip over wrapped lines
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
-; smart-mode-line
-(setq sml/theme 'dark)
-(sml/setup)
 
 ; installed packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil
