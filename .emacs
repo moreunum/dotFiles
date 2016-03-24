@@ -94,7 +94,6 @@
 (setq helm-quick-update t)
 
 ; rebind helm prefix
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
 ; rebind tab to run persistent action instead of C-z
@@ -126,9 +125,6 @@
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-c h o") 'helm-occur)
-
-(global-set-key (kbd "C-c h x") 'helm-register)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
@@ -255,17 +251,23 @@
 (define-key evil-normal-state-map "R" 'evil-multiedit-match-all)
 (define-key evil-visual-state-map "R" 'evil-multiedit-match-all)
 (define-key evil-motion-state-map "R" 'evil-multiedit-match-all)
-(define-key evil-normal-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
-(define-key evil-visual-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
-(define-key evil-normal-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
-(define-key evil-visual-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
-(define-key evil-multiedit-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
-(define-key evil-visual-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
-(define-key evil-multiedit-state-map (kbd "C-n") 'evil-multiedit-next)
-(define-key evil-multiedit-state-map (kbd "C-p") 'evil-multiedit-prev)
+;; (define-key evil-normal-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
+;; (define-key evil-visual-state-map (kbd "M-n") 'evil-multiedit-match-and-next)
+;; (define-key evil-normal-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
+;; (define-key evil-visual-state-map (kbd "M-p") 'evil-multiedit-match-and-prev)
+;; (define-key evil-multiedit-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+;; (define-key evil-visual-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+;; (define-key evil-multiedit-state-map (kbd "C-n") 'evil-multiedit-next)
+;; (define-key evil-multiedit-state-map (kbd "C-p") 'evil-multiedit-prev)
 (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match) ;; example usage: ":%ie mystring"
 (evil-leader/set-key "m e" 'evil-multiedit-abort)
 (evil-leader/set-key "m r" 'evil-multiedit-restore)
+
+; evil-mc
+(require 'evil-mc)
+(global-evil-mc-mode  1)
+; Can't use key-chord with evil-mc
+(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
@@ -325,5 +327,7 @@
 ; command-log-mode
 ; company-flx
 ; zoom-window
+; evil-multiedit
+; evil-mc
 
 ;;; .emacs ends here
