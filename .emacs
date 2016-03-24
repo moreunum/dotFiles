@@ -1,3 +1,33 @@
+;;; .emacs --- Custom configs and packages
+;;; Commentary:
+;;; Code:
+
+; settings via menus ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; evil-magic doesn't seem to do anything
+; evil-search-mode allows retrieval of past searches
+; avy faces changes the colors to make avy more legible
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(evil-magic (quote very-magic))
+ '(evil-search-module (quote evil-search))
+ '(sml/name-width 25))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(avy-lead-face-0 ((t (:background "#5180b3" :foreground "black"))))
+ '(avy-lead-face-2 ((t (:background "#f86bf3" :foreground "black"))))
+ '(eyebrowse-mode-line-active ((t (:inherit default :background "color-52" :foreground "brightcyan")))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ; package manager
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -244,9 +274,8 @@
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ; smart-mode-line
-;; (setq sml/theme 'dark)
-;; (sml/setup)
-;; (add-hook 'after-init-hook 'sml/setup)
+(setq sml/theme 'dark)
+(sml/setup)
 
 ; installed packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil
@@ -271,23 +300,4 @@
 ; company-flx
 ; zoom-window
 
-; settings via menus ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; evil-magic doesn't seem to do anything
-; evil-search-mode allows retrieval of past searches
-; avy faces changes the colors to make avy more legible
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-magic (quote very-magic))
- '(evil-search-module (quote evil-search)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(avy-lead-face-0 ((t (:background "#5180b3" :foreground "black"))))
- '(avy-lead-face-2 ((t (:background "#f86bf3" :foreground "black"))))
- '(eyebrowse-mode-line-active ((t (:inherit default :background "color-52" :foreground "brightcyan")))))
+;;; .emacs ends here

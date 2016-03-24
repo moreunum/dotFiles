@@ -33,6 +33,9 @@
     * when creating function, use (interactive) if you want the function to be callable from a key command, or from M-:
     * face = font/color of text
     * symbols with colons ":mysymbol" are keywords that cannot be re-bound
+    * cons: construct a list
+    * car: first item
+    * cdr: the other items
 * speed
   * emacs lisp profiler
   * garbage collector threshold
