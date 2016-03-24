@@ -196,6 +196,17 @@
 ;; c-mode-common-hook is also called by c++-mode
 (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
+; zoom-window: maximize/minimize a window like tmux
+(require 'zoom-window)
+(evil-leader/set-key "o" 'zoom-window-zoom)
+(setq zoom-window-mode-line-color "DarkGreen")
+
+; <tab> = tab key
+; TAB = tab character
+(define-key evil-insert-state-map (kbd "TAB") "    ")
+(setq-default indent-tabs-mode nil) ; TAB inserts spaces
+;; (setq-default tab-width 4)
+
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
 (menu-bar-mode -1) ; turn off menu bar (useless?)
@@ -228,12 +239,6 @@
 
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
 
-; <tab> = tab key
-; TAB = tab character
-(define-key evil-insert-state-map (kbd "TAB") "    ")
-(setq-default indent-tabs-mode nil) ; TAB inserts spaces
-;; (setq-default tab-width 4)
-
 ; don't skip over wrapped lines
 ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
@@ -262,6 +267,7 @@
 ; smart-mode-line
 ; command-log-mode
 ; company-flx
+; zoom-window
 
 ; settings via menus ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil-magic doesn't seem to do anything

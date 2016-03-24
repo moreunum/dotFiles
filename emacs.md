@@ -168,3 +168,4 @@
     * jedi
     * pep8
     * pylint
+  * sublimity
