@@ -25,10 +25,12 @@
   * command-log-mode: 
     * clm/open-command-log-buffer = open the buffer
     * command-log-mode   = start logging
+* elisp
+    * find-function
+    * describe-variable
 * speed
   * emacs lisp profiler
   * garbage collector threshold
-  * turn off autosave?
 * windows (splits)
   * C-x 1 = close other splits
   * C-x 0 = close particular split

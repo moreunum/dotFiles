@@ -42,8 +42,8 @@
                     (interactive)
                     (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda ()
-		    (interactive)
-		    (evil-scroll-down nil)))
+            (interactive)
+            (evil-scroll-down nil)))
 
 ; remap goto marker
 (define-key evil-normal-state-map (kbd "'") 'evil-goto-mark)
@@ -138,8 +138,8 @@
 (setq projectile-enable-caching t) ; refresh: projectile-invalidate-cache
 (helm-projectile-on)
 
-; helm-flx (works more like fzf)
-(helm-flx-mode +1)
+; helm-flx (this is a little weird)
+;; (helm-flx-mode +1)
 
 ; remove minor mode clutter from modeline
 (require 'rich-minority)
@@ -156,6 +156,10 @@
   (lambda () (interactive) (company-complete-common-or-cycle 1)))
 (define-key company-active-map (kbd "C-p")
   (lambda () (interactive) (company-complete-common-or-cycle -1)))
+
+; company-flx
+(with-eval-after-load 'company
+  (company-flx-mode +1))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; how does this work?
@@ -167,9 +171,9 @@
 ; rtags
 (add-to-list 'load-path "~/.emacs.d/site-lisp/rtags") ; install rtags manually
 (require 'rtags)
-(setq rtags-autostart-diagnostics t)
+(setq rtags-autostart-diagnostics t) ; diagnostics used by flycheck
 (rtags-diagnostics)
-; auto-start rdm when in C/C++ source file
+; auto-start rdm when in C/C++ source file (doesn't seem to work if someone else's rdm is running)
 (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
 (add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
 (evil-leader/set-key "d" 'rtags-find-symbol-at-point)
@@ -204,7 +208,13 @@
 (show-paren-mode t) ; show matching parenthesis
 ;; (setq gdb-many-windows t) ; graphical GDB
 (setq gdb-show-main t) ; show main function on GDB startup
-(setq auto-save-mode -1) ; turn off auto save
+(setq backup-inhibited t) ;disable backup
+(setq auto-save-default nil) ;disable auto save
+
+; remove "kill buffer with live process" :prompt
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
 
 ; make vertical divider look nicer
 (set-face-background 'vertical-border "black")
@@ -245,9 +255,7 @@
 ; helm-projectile, helm-flx, helm-company, helm-descbinds, helm-describe-modes, helm-fuzzier
 ; helm-proc, helm-mode-manager
 ; smooth-scrolling
-; perspective (from marmalade repo)
 ; rich-minority
-; color-theme-approximate (unused)
 ; company
 ; evil-leader
 ; eyebrowse
@@ -258,3 +266,4 @@
 ; ample theme
 ; smart-mode-line
 ; command-log-mode
+; company-flx
