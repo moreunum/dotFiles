@@ -18,11 +18,6 @@
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
 
-; hide the startup message
-(setq inhibit-splash-screen t
-      inhibit-startup-echo-area-message t
-      inhibit-startup-message t)
-
 ; proxy
 ; start emacs with --insecure to not use https
 ;(setq url-proxy-services '(("no_proxy" . "work\\.com")
@@ -137,6 +132,8 @@
 (setq projectile-completion-system 'helm)
 (setq projectile-enable-caching t) ; refresh: projectile-invalidate-cache
 (helm-projectile-on)
+(evil-leader/set-key "p f" 'helm-projectile-find-file)
+(evil-leader/set-key "p a" 'helm-projectile-ag)
 
 ; helm-flx (this is a little weird)
 ;; (helm-flx-mode +1)
@@ -176,14 +173,14 @@
 ; auto-start rdm when in C/C++ source file (doesn't seem to work if someone else's rdm is running)
 (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
 (add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
-(evil-leader/set-key "d" 'rtags-find-symbol-at-point)
-(evil-leader/set-key "r" 'rtags-find-references-at-point)
-(evil-leader/set-key "c" 'rtags-rename-symbol)
-(evil-leader/set-key "p" 'rtags-location-stack-back)
-(evil-leader/set-key "n" 'rtags-location-stack-forward)
-(evil-leader/set-key "s" 'rtags-display-summary)
-(evil-leader/set-key "h" 'rtags-print-class-hierarchy)
-(evil-leader/set-key "RET" 'rtags-show-in-other-window)
+(evil-leader/set-key "r d" 'rtags-find-symbol-at-point)
+(evil-leader/set-key "r r" 'rtags-find-references-at-point)
+(evil-leader/set-key "r c" 'rtags-rename-symbol)
+(evil-leader/set-key "r p" 'rtags-location-stack-back)
+(evil-leader/set-key "r n" 'rtags-location-stack-forward)
+(evil-leader/set-key "r s" 'rtags-display-summary)
+(evil-leader/set-key "r h" 'rtags-print-class-hierarchy)
+(evil-leader/set-key "r RET" 'rtags-show-in-other-window)
 
 ; company-rtags
 (setq rtags-completions-enabled t)
