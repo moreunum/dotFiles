@@ -178,7 +178,7 @@
 ; company mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay 0.7) ; only trigger on key-press when "nil"
+(setq company-idle-delay nil) ; only trigger on key-press when "nil"
 (define-key evil-insert-state-map (kbd "C-p") 'company-complete)
 
 ; remap keys to match vim/helm/emacs
