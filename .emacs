@@ -179,6 +179,7 @@
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.7) ; only trigger on key-press when "nil"
+(define-key evil-insert-state-map (kbd "C-p") 'company-complete)
 
 ; remap keys to match vim/helm/emacs
 (define-key company-active-map (kbd "C-n")
@@ -221,8 +222,6 @@
 ; company-rtags
 ;; (setq rtags-completions-enabled t)
 ;; (push 'company-rtags company-backends)
-;; (global-company-mode)
-;; (define-key evil-insert-state-map (kbd "C-p") 'company-complete)
 
 ; flycheck-rtags
 ;; (require 'flycheck-rtags)
@@ -239,8 +238,8 @@
 (ycmd-show-debug-info)
 
 ; company-ycmd
-;; (require 'company-ycmd)
-;; (company-ycmd-setup)
+(require 'company-ycmd)
+(company-ycmd-setup)
 
 ; company-flycheck
 (require 'flycheck-ycmd)
