@@ -98,6 +98,9 @@
 * manually install rtags (or other packages)
   * build and install rtags to get the .elc files
   * copy the .el and .elc files to ~/.emacs.d/site-lisp/rtags
+* performance
+  * https://www.reddit.com/r/emacs/comments/4c0mi3/the_biggest_performance_improvement_to_emacs_ive/
+    * (remove-hook 'find-file-hooks 'vc-find-file-hook)
 * todo:
   * navigation: 
     * rtags: probably the best

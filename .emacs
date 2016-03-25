@@ -177,8 +177,8 @@
 
 ; company mode
 (require 'company)
-;; (add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay nil) ; only trigger on key-press when "nil"
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.7) ; only trigger on key-press when "nil"
 
 ; remap keys to match vim/helm/emacs
 (define-key company-active-map (kbd "C-n")
@@ -190,8 +190,8 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; company-flx
-(with-eval-after-load 'company
-  (company-flx-mode +1))
+;; (with-eval-after-load 'company
+;;   (company-flx-mode +1))
 
 ; how does this work?
 ;; (eval-after-load 'company
@@ -233,18 +233,18 @@
 
 ; ycmd
 (require 'ycmd)
-(ycmd-show-debug-info)
 (add-hook 'after-init-hook #'global-ycmd-mode)
 ; This must be the absolute path to the directory containing the __main__.py file
 (set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/ycmd/ycmd"))
+(ycmd-show-debug-info)
 
 ; company-ycmd
-(require 'company-ycmd)
-(company-ycmd-setup)
+;; (require 'company-ycmd)
+;; (company-ycmd-setup)
 
 ; company-flycheck
-;; (require 'flycheck-ycmd)
-;; (flycheck-ycmd-setup)
+(require 'flycheck-ycmd)
+(flycheck-ycmd-setup)
 
 ; Maximize selected window
 (defun evil-set-width-height ()
