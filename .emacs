@@ -186,6 +186,9 @@
 (define-key company-active-map (kbd "C-p")
   (lambda () (interactive) (company-complete-common-or-cycle -1)))
 
+; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ; company-flx
 (with-eval-after-load 'company
   (company-flx-mode +1))
@@ -215,19 +218,11 @@
 ;; (evil-leader/set-key "r RET" 'rtags-show-in-other-window) ; don't need if using helm
 (setq rtags-use-helm t)
 
-; ycmd
-;; (require 'ycmd)
-;; (add-hook 'after-init-hook #'global-ycmd-mode)
-;; (set-variable 'ycmd-server-command '("python" "~/installed/ycmd"))
-
 ; company-rtags
 ;; (setq rtags-completions-enabled t)
 ;; (push 'company-rtags company-backends)
 ;; (global-company-mode)
 ;; (define-key evil-insert-state-map (kbd "C-p") 'company-complete)
-
-; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; flycheck-rtags
 ;; (require 'flycheck-rtags)
@@ -236,10 +231,19 @@
 ;; ;; c-mode-common-hook is also called by c++-mode
 ;; (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
-; zoom-window (doesn't work with eyebrowse and evil-mc)
-;; (require 'zoom-window)
-;; (evil-leader/set-key "o" 'zoom-window-zoom)
-;; (setq zoom-window-mode-line-color "DarkGreen")
+; ycmd
+(require 'ycmd)
+(ycmd-show-debug-info)
+(add-hook 'after-init-hook #'global-ycmd-mode)
+(set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/YouCompleteMe/third_party/ycmd/ycmd"))
+
+; company-ycmd
+(require 'company-ycmd)
+(company-ycmd-setup)
+
+; company-flycheck
+;; (require 'flycheck-ycmd)
+;; (flycheck-ycmd-setup)
 
 ; Maximize selected window
 (defun evil-set-width-height ()

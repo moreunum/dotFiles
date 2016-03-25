@@ -23,5 +23,8 @@ export FZF_ALT_C_COMMAND='find .'
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
+# Prevent Ctrl-s from disabling terminal
+stty -ixon
+
 # emacs
 alias ec='emacsclient'

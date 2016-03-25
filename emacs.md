@@ -133,7 +133,6 @@
       * company-irony-c-headers
     * company-clang
     * company-gtags
-  * evil-multiedit
   * magit
     * merging with magit and ediff
     * evil-magit
@@ -154,7 +153,6 @@
   * use-package: organize packages
   * popwin
   * sublimity (needs gui?)
-  * company quickhelp (I think this only works in GUI)
   * fiplr? helm alternative using grizzl
   * replace helm with ivy, swiper and counsel?
   * function-args
