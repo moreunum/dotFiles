@@ -235,7 +235,8 @@
 (require 'ycmd)
 (ycmd-show-debug-info)
 (add-hook 'after-init-hook #'global-ycmd-mode)
-(set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/YouCompleteMe/third_party/ycmd/ycmd"))
+; This must be the absolute path to the directory containing the __main__.py file
+(set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/ycmd/ycmd"))
 
 ; company-ycmd
 (require 'company-ycmd)

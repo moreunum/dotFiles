@@ -31,7 +31,7 @@
   * Seems to sometimes take a little bit of fiddling to get tab suggestions for members of existing code.
   * when using YCM on the rtags project, had some compiler errors in one of the files (missing includes?)
   * emacs-ycm
-    * yum install python34-devel
+    * yum install python34-devel?
     * recursive checkout and build ycmd into installed directory
 * rtags
   * install: https://github.com/Andersbakken/rtags
