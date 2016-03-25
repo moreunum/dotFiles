@@ -175,6 +175,23 @@
 (rich-minority-mode 1)
 (setf rm-blacklist "")
 
+; Maximize selected window
+(defun evil-set-width-height ()
+  (interactive)
+  (evil-window-set-height nil)
+  (evil-window-set-width nil))
+(evil-leader/set-key "o" 'evil-set-width-height)
+
+; smart-mode-line
+(setq sml/theme 'dark)
+(sml/setup)
+
+; <tab> = tab key
+; TAB = tab character
+(define-key evil-insert-state-map (kbd "TAB") "    ")
+(setq-default indent-tabs-mode nil) ; TAB inserts spaces
+;; (setq-default tab-width 4)
+
 ; company mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -200,7 +217,10 @@
 ;;      (define-key company-mode-map (kbd "C-:") 'helm-company)
 ;;      (define-key company-active-map (kbd "C-:") 'helm-company)))
 
-; rtags
+; rtags ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; seems to work on everything
+; flycheck about the same as ycm on cmake source
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/rtags") ; install rtags manually
 (require 'rtags)
 (setq rtags-autostart-diagnostics t) ; diagnostics used by flycheck
@@ -220,47 +240,61 @@
 (setq rtags-use-helm t)
 
 ; company-rtags
-;; (setq rtags-completions-enabled t)
-;; (push 'company-rtags company-backends)
+(setq rtags-completions-enabled t)
+(push 'company-rtags company-backends)
 
 ; flycheck-rtags
-;; (require 'flycheck-rtags)
-;; (defun my-flycheck-rtags-setup ()
-;;   (flycheck-select-checker 'rtags))
-;; ;; c-mode-common-hook is also called by c++-mode
-;; (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+(require 'flycheck-rtags)
+(defun my-flycheck-rtags-setup ()
+  (flycheck-select-checker 'rtags))
+;; c-mode-common-hook is also called by c++-mode
+(add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
+;---------------------------------------------------
 
-; ycmd
-(require 'ycmd)
-(add-hook 'after-init-hook #'global-ycmd-mode)
-; This must be the absolute path to the directory containing the __main__.py file
-(set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/ycmd/ycmd"))
-(ycmd-show-debug-info)
+; ycmd ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; flycheck seems to work anywhere, ~5 seconds for cmake source
+; auto-complete works for smaller projects but fails on cmake source
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (require 'ycmd)
+;; (add-hook 'after-init-hook #'global-ycmd-mode)
+;; ; This must be the absolute path to the directory containing the __main__.py file
+;; (set-variable 'ycmd-server-command '("python" "/home/ctstapl/installed/ycmd/ycmd"))
+;; (ycmd-show-debug-info)
 
 ; company-ycmd
-(require 'company-ycmd)
-(company-ycmd-setup)
+;; (require 'company-ycmd)
+;; (company-ycmd-setup)
 
-; company-flycheck
-(require 'flycheck-ycmd)
-(flycheck-ycmd-setup)
+; flycheck-ycmd
+;; (require 'flycheck-ycmd)
+;; (flycheck-ycmd-setup)
+;---------------------------------------------------
 
-; Maximize selected window
-(defun evil-set-width-height ()
-  (interactive)
-  (evil-window-set-height nil)
-  (evil-window-set-width nil))
-(evil-leader/set-key "o" 'evil-set-width-height)
+; irony ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; irony will prompt to build the server when a C++ file is opened
+; works ok with simpler projects, but fails on cmake source
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (add-hook 'c++-mode-hook 'irony-mode)
+;; (add-hook 'c-mode-hook 'irony-mode)
+;; (add-hook 'objc-mode-hook 'irony-mode)
+;; ;; replace the `completion-at-point' and `complete-symbol' bindings in
+;; ;; irony-mode's buffers by irony-mode's function
+;; (defun my-irony-mode-hook ()
+;;   (define-key irony-mode-map [remap completion-at-point]
+;;     'irony-completion-at-point-async)
+;;   (define-key irony-mode-map [remap complete-symbol]
+;;     'irony-completion-at-point-async))
+;; (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-; smart-mode-line
-(setq sml/theme 'dark)
-(sml/setup)
+;; ; company-irony
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-irony))
 
-; <tab> = tab key
-; TAB = tab character
-(define-key evil-insert-state-map (kbd "TAB") "    ")
-(setq-default indent-tabs-mode nil) ; TAB inserts spaces
-;; (setq-default tab-width 4)
+;; ; flycheck-irony
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+;---------------------------------------------------
 
 ; multiple cursors
 (require 'evil-multiedit)
@@ -330,8 +364,6 @@
 (enable-theme 'ample)
 ;; (load-theme 'monokai t)
 
-;; (color-theme-approximate-on) ; make colors look correct (doesn't do anything?)
-
 ;(ediff-split-window-function 'split-window-horizontally) ; ediff vertical split
 
 ; don't skip over wrapped lines
@@ -362,5 +394,8 @@
 ; zoom-window
 ; evil-multiedit
 ; evil-mc
+; rtags
+; ycmd
+; irony, company-irony, flycheck-irony
 
 ;;; .emacs ends here
