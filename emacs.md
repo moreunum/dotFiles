@@ -54,7 +54,7 @@
 * diff files: ediff
 * debugging
   * use gud-gdb, "gdb" is probably only useful in GUI mode
-  * must run gdb-many-windows with -i=mi
+  * kill gud with C-x k
 * motion
   * scroll down: C-v
   * scroll up: M-v

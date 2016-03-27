@@ -18,8 +18,7 @@
  '(evil-ex-search-persistent-highlight nil)
  '(evil-magic (quote very-magic))
  '(evil-search-module (quote evil-search))
- '(sml/name-width 25)
- '(zoom-window-mode-line-color "MidnightBlue"))
+ '(sml/name-width 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -395,7 +394,7 @@
 ; evil-multiedit
 ; evil-mc
 ; rtags
-; ycmd
-; irony, company-irony, flycheck-irony
+; ycmd (unused)
+; irony, company-irony, flycheck-irony (unused)
 
 ;;; .emacs ends here
