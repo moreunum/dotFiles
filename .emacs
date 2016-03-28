@@ -84,6 +84,9 @@
 (evil-leader/set-leader "s")
 (evil-leader/set-key "w" 'save-buffer)
 
+; tread _ as part of text-object words in evil mode
+(modify-syntax-entry ?_ "w")
+
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'helm)
 (require 'helm-config)
@@ -245,7 +248,9 @@
 ; flycheck-rtags
 (require 'flycheck-rtags)
 (defun my-flycheck-rtags-setup ()
-  (flycheck-select-checker 'rtags))
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
+  (setq-local flycheck-check-syntax-automatically nil))
 ;; c-mode-common-hook is also called by c++-mode
 (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 ;---------------------------------------------------
@@ -312,28 +317,27 @@
 (evil-leader/set-key "m e" 'evil-multiedit-abort)
 (evil-leader/set-key "m r" 'evil-multiedit-restore)
 
-; evil-mc
-(require 'evil-mc)
-(global-evil-mc-mode  1)
-; Can't use key-chord with evil-mc
-(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
-; keys:
-(define-key evil-normal-state-map (kbd "grm") 'evil-mc-make-all-cursors)
-(define-key evil-normal-state-map (kbd "gru") 'evil-mc-undo-all-cursors)
-(define-key evil-normal-state-map (kbd "grs") 'evil-mc-pause-cursors)
-(define-key evil-normal-state-map (kbd "grr") 'evil-mc-resume-cursors)
-(define-key evil-normal-state-map (kbd "grf") 'evil-mc-make-and-goto-first-cursor)
-(define-key evil-normal-state-map (kbd "grl") 'evil-mc-make-and-goto-last-cursor)
-(define-key evil-normal-state-map (kbd "grh") 'evil-mc-make-cursor-here)
-(define-key evil-normal-state-map (kbd "M-n") 'evil-mc-make-and-goto-next-cursor)
-(define-key evil-normal-state-map (kbd "grN") 'evil-mc-skip-and-goto-next-cursor)
-(define-key evil-normal-state-map (kbd "M-p") 'evil-mc-make-and-goto-prev-cursor)
-(define-key evil-normal-state-map (kbd "grP") 'evil-mc-skip-and-goto-prev-cursor)
-(define-key evil-normal-state-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
-(define-key evil-normal-state-map (kbd "grn") 'evil-mc-skip-and-goto-next-match)
-(define-key evil-normal-state-map (kbd "C-t") 'evil-mc-skip-and-goto-next-match)
-(define-key evil-normal-state-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
-(define-key evil-normal-state-map (kbd "grp") 'evil-mc-skip-and-goto-prev-match)
+;; ; evil-mc
+;; (require 'evil-mc)
+;; (global-evil-mc-mode  1)
+;; ; Can't use key-chord with evil-mc
+;; (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+;; ; keys:
+;; (define-key evil-normal-state-map (kbd "grm") 'evil-mc-make-all-cursors)
+;; (define-key evil-normal-state-map (kbd "gru") 'evil-mc-undo-all-cursors)
+;; (define-key evil-normal-state-map (kbd "grs") 'evil-mc-pause-cursors)
+;; (define-key evil-normal-state-map (kbd "grr") 'evil-mc-resume-cursors)
+;; (define-key evil-normal-state-map (kbd "grf") 'evil-mc-make-and-goto-first-cursor)
+;; (define-key evil-normal-state-map (kbd "grl") 'evil-mc-make-and-goto-last-cursor)
+;; (define-key evil-normal-state-map (kbd "grh") 'evil-mc-make-cursor-here)
+;; (define-key evil-normal-state-map (kbd "M-n") 'evil-mc-make-and-goto-next-cursor)
+;; (define-key evil-normal-state-map (kbd "grN") 'evil-mc-skip-and-goto-next-cursor)
+;; (define-key evil-normal-state-map (kbd "M-p") 'evil-mc-make-and-goto-prev-cursor)
+;; (define-key evil-normal-state-map (kbd "grP") 'evil-mc-skip-and-goto-prev-cursor)
+;; (define-key evil-normal-state-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
+;; (define-key evil-normal-state-map (kbd "grn") 'evil-mc-skip-and-goto-next-match)
+;; (define-key evil-normal-state-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
+;; (define-key evil-normal-state-map (kbd "grp") 'evil-mc-skip-and-goto-prev-match)
 
 ; misc
 (electric-indent-mode -1) ; turn off auto-indent
