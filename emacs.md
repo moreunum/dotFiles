@@ -55,6 +55,8 @@
 * debugging
   * use gud-gdb, "gdb" is probably only useful in GUI mode
   * kill gud with C-x k
+  * set breakpoint in code: C-x C-a C-b
+  * send INT signal: C-c C-c
 * motion
   * scroll down: C-v
   * scroll up: M-v
@@ -102,44 +104,12 @@
   * https://www.reddit.com/r/emacs/comments/4c0mi3/the_biggest_performance_improvement_to_emacs_ive/
     * (remove-hook 'find-file-hooks 'vc-find-file-hook)
 * todo:
-  * navigation: 
-    * rtags: probably the best
-    * cedet: 
-      * may not work well with large codebases
-      * probably just for C, not C++
-    * clang-tags: very similar to rtags, but much fewer contributions...
-    * helm-gtags: gnu global tags. does this work well with c++?
-    * clang-ctags: like ctags but uses clang
-  * syntax checking:
-    * flycheck
-      * spacemacs layer for reference
-  * completion:
-    * front-ends:
-      * company-mode: seems to be better
-        * company-quick-help?
-      * auto-complete
-      * spacemacs auto-completion layer as reference for both
-    * rtags: may be sufficient for completion
-    * emacs-ycmd = interface to ycm server
-      * company-ycmd is the front-end for completion
-      * flycheck-ycmd is the front-end for errors
-      * spacemacs ycmd layer as example
-    * irony-mode
-      * works similarly to ycm
-      * may stop working after a while
-      * may be easier to set up than ycm
-      * not fuzzy like ycm
-      * c++ only
-      * front-end either company or autocomplete
-      * errors with flycheck
-      * company-irony-backend
-      * company-irony-c-headers
-    * company-clang
-    * company-gtags
   * magit
     * merging with magit and ediff
     * evil-magit
   * diff-hl
+  * realgud
+  * profile emacs
   * anzu
   * python
     * anaconda
@@ -165,3 +135,25 @@
     * prelude
     * narf emacs
     * spacemacs as reference: packages.el
+  * navigation: 
+    * cedet: 
+      * may not work well with large codebases
+      * probably just for C, not C++
+    * clang-tags: very similar to rtags, but much fewer contributions...
+    * helm-gtags: gnu global tags. does this work well with c++?
+    * clang-ctags: like ctags but uses clang
+  * completion:
+    * front-ends:
+      * auto-complete
+    * irony-mode
+      * works similarly to ycm
+      * may stop working after a while
+      * may be easier to set up than ycm
+      * not fuzzy like ycm
+      * c++ only
+      * front-end either company or autocomplete
+      * errors with flycheck
+      * company-irony-backend
+      * company-irony-c-headers
+    * company-clang
+    * company-gtags

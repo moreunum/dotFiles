@@ -396,5 +396,6 @@
 ; rtags
 ; ycmd (unused)
 ; irony, company-irony, flycheck-irony (unused)
+; pcre2el
 
 ;;; .emacs ends here
