@@ -113,6 +113,19 @@
         * if it's a standalone app, run it
         * if it's a library, make a small program that uses it
     * identify hotspots: important components
+        * for each logical component:
+          * point of contact
+          * processes/threads
+            * ps auxm
+          * external resources (files, etc...)
+            * lsof -p 13008
+              * shared libraries
+              * ports
+              * files
+          * important source files
+            * main loop: gdb attach, bt, switch threads
+            * most commits: 
+              * git log --name-only | ag "/.*\.(c|cpp|cxx|h|hpp)$" | sort | uniq -c | sort -rg | head -100
         * if it's a library, use your example program for analysis
         * identify standalone executables
         * identify processe
@@ -120,8 +133,8 @@
         * input and output files
         * external data stores
         * shared libraries
-        * static libraries
         * source files:
+          * git-extras
           * frecency files
           * files edited by many people
           * identify "owners" of important files
@@ -133,6 +146,26 @@
   * granular-level: individual classes and functions
     * debugger
     * unit tests
+
+* redis analysis example
+  * logical components
+    * starter thread (4):
+      * listening port 6379
+      * server.c
+        * main()
+      * ae.c
+        * aeProcessEvents()
+        * aeMain()
+      * ae_poll.c
+        * aeApiPoll()
+    * most commits:
+        593 src/redis.c
+        498 src/cluster.c
+        497 src/redis.h
+        247 src/networking.c
+        221 src/sentinel.c
+        182 src/config.c
+        176 src/replication.c
 
   * doxygen with graphviz
   * identify major patterns used
