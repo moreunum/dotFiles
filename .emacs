@@ -87,6 +87,9 @@
 ; tread _ as part of text-object words in evil mode
 (modify-syntax-entry ?_ "w")
 
+; remap evil-mode
+(defcustom evil-toggle-key "C-`")
+
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'helm)
 (require 'helm-config)

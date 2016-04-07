@@ -126,6 +126,9 @@
             * main loop: gdb attach, bt, switch threads
             * most commits: 
               * git log --name-only | ag "/.*\.(c|cpp|cxx|h|hpp)$" | sort | uniq -c | sort -rg | head -100
+              * most committers
+              * biggest files
+              * find interesting intersections between these
         * if it's a library, use your example program for analysis
         * identify standalone executables
         * identify processe
