@@ -18,6 +18,7 @@
  '(evil-ex-search-persistent-highlight nil)
  '(evil-magic (quote very-magic))
  '(evil-search-module (quote evil-search))
+ '(evil-toggle-key "C-`")
  '(sml/name-width 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -86,9 +87,6 @@
 
 ; tread _ as part of text-object words in evil mode
 (modify-syntax-entry ?_ "w")
-
-; remap evil-mode
-(defcustom evil-toggle-key "C-`")
 
 ; helm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'helm)
