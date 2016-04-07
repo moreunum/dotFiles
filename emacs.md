@@ -13,6 +13,7 @@
 * buffer:
   * open: C-x b
   * list all: C-x C-b
+* switch to the shell: C-x z
 * help
   * C-h h = show all "C-h" help commands
   * what does elisp function do? C-h f

@@ -106,6 +106,34 @@
     make  
     make test CTEST_OUTPUT_ON_FAILURE=true  
 * code analysis:
+  * high-level
+    * what is project supposed to do? Look at docs, ask people
+    * build and run project (with debugger)
+    * learn how to use the feature you're working on
+        * if it's a standalone app, run it
+        * if it's a library, make a small program that uses it
+    * identify hotspots: important components
+        * if it's a library, use your example program for analysis
+        * identify standalone executables
+        * identify processe
+        * identify threads
+        * input and output files
+        * external data stores
+        * shared libraries
+        * static libraries
+        * source files:
+          * frecency files
+          * files edited by many people
+          * identify "owners" of important files
+        * most heavily-used internal data structures
+        * interfaces to external components/libraries
+  * intermediate-level: a collection of classes/files that perform a particular task
+    * doxygen: call-graphs, class hierarchies
+    * "main loop" (perf?)
+  * granular-level: individual classes and functions
+    * debugger
+    * unit tests
+
   * doxygen with graphviz
   * identify major patterns used
   * identify important threads

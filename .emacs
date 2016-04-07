@@ -348,6 +348,7 @@
 (setq gdb-show-main t) ; show main function on GDB startup
 (setq backup-inhibited t) ;disable backup
 (setq auto-save-default nil) ;disable auto save
+(modify-syntax-entry ?_ "w") ;treat _ as part of word for evil
 
 ; remove "kill buffer with live process" :prompt
 (setq kill-buffer-query-functions
