@@ -123,17 +123,20 @@
               * ports
               * files
           * important source files
-            * main loop: gdb attach, bt, switch threads
             * most commits: 
               * git log --name-only | ag "/.*\.(c|cpp|cxx|h|hpp)$" | sort | uniq -c | sort -rg | head -100
               * most committers
               * biggest files
               * find interesting intersections between these
+          * important functions
+            * main loop: 
+                * gdb attach, bt, switch threads
+                * gdb -batch -ex "thread apply all bt" -p <pid>
+                * gstack <pid> = gives snapshot of processes in each thread
+                * perf (doesn't seem to work every time)
+                    * perf record -p <pid> --call-graph dwarf
+                    * perf report --stdio --sort dso -g flat,0.1,callee,function
         * if it's a library, use your example program for analysis
-        * identify standalone executables
-        * identify processe
-        * identify threads
-        * input and output files
         * external data stores
         * shared libraries
         * source files:
@@ -195,6 +198,25 @@
       * where is config stored?
     * runtime data store and major data structures
     * user interface code
+    * tools
+      * gprof, systemtap, perf, gdb, sysdig, fenris, cachegrind, callgrind
+      * get symbols from binary
+        * nm -C
+          * nm -l = show line numbers
+          * nm -g = show only external symbols (defined in another source file)
+          * nm --defined-only
+        * objdump -C -t
+        * readelf -s
+          * identifies function vs object, but doesn't unmangle c++?
+      
+    * hotspots
+      * files: commits, committers, size
+      * most used classes, public methods
+        * classes in memory?
+        * some way to visualize the set of class-members that control a logical task?
+      * identify important data structures
+      * for each, set breakpoints on all, run gdb, and see what pops up
+      * some way of visualizing/selecting overlap between types of hotspots
 
 jenkins tools:
 * jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email

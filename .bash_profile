@@ -27,4 +27,4 @@ export CXX=/usr/bin/clang++
 stty -ixon
 
 # emacs
-alias ec='emacsclient'
+alias ec='emacsclient -c'
