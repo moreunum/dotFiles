@@ -113,8 +113,6 @@
   * use modifiers to move multiple times at once:
     * M-2, C-M-] s  - move back two s
   * M-y: cycle through previously yanked
-  * vi mode:
-    * remap esc: http://stackoverflow.com/questions/6839006/map-jj-to-esc-in-inputrc-readline
     
 ===================================================
 * code analysis:

@@ -9,4 +9,11 @@ $if mode=vi
   "\C-p": history-search-backward
   "\C-n": history-search-forward
   "\C-x\C-r": re-read-init-file
+  "\C-y": yank
+  "\C-u": unix-line-discard
+  "\C-e": end-of-line
+  "\C-a": beginning-of-line
+  "\C-x(": start-kbd-macro
+  "\C-x)": end-kbd-macro
+  "\C-xe": call-last-kbd-macro
 $endif
