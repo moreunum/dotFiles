@@ -28,3 +28,6 @@ stty -ixon
 
 # emacs
 alias ec='emacsclient -c'
+
+# Bash
+export EDITOR=vim

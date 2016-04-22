@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 ; settings via menus ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; evil-magic doesn't seem to do anything
 ; evil-search-mode allows retrieval of past searches
@@ -81,9 +82,11 @@
 ; fzf
 (define-key evil-normal-state-map (kbd "C-t") 'fzf)
 
+; misc keys
+(define-key evil-normal-state-map (kbd "W") 'save-buffer)
+
 ; evil leader
 (evil-leader/set-leader "s")
-(evil-leader/set-key "w" 'save-buffer)
 
 ; tread _ as part of text-object words in evil mode
 (modify-syntax-entry ?_ "w")

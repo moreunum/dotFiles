@@ -105,6 +105,18 @@
     cmake -DCMAKE_BUILD_TYPE=Debug ..  
     make  
     make test CTEST_OUTPUT_ON_FAILURE=true  
+* readline:
+  * Macros: C-x (, C-x ), C-x e
+  * Expand variables: M-C-e
+  * Kill and paste: C-k or C-w, C-y
+  * show all bound commands: bind -P
+  * use modifiers to move multiple times at once:
+    * M-2, C-M-] s  - move back two s
+  * M-y: cycle through previously yanked
+  * vi mode:
+    * remap esc: http://stackoverflow.com/questions/6839006/map-jj-to-esc-in-inputrc-readline
+    
+===================================================
 * code analysis:
   * high-level
     * what is project supposed to do? Look at docs, ask people
@@ -208,6 +220,12 @@
         * objdump -C -t
         * readelf -s
           * identifies function vs object, but doesn't unmangle c++?
+        * gdb
+          * gdb -ex <command> = execute command
+          * gdb -command=<file> = execute file of gdb commands
+          * gdb -q -p 2999 --command=gdb_commands
+            * need to kill gdb to exit this it looks like...
+          * break on new/delete/malloc/free (assumes that heap is important)
       
     * hotspots
       * files: commits, committers, size
@@ -217,28 +235,3 @@
       * identify important data structures
       * for each, set breakpoints on all, run gdb, and see what pops up
       * some way of visualizing/selecting overlap between types of hotspots
-
-jenkins tools:
-* jenkins email:http://www.nailedtothex.org/roller/kyle/entry/articles-jenkins-email
-* connect jenkins to github:
-	* http://fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github
-	* install plugins manually: http://stackoverflow.com/questions/14950408/how-to-install-a-plugin-in-jenkins-manually
-* jenkins warnings plugin: scans compilation output for warnings
-	* more incentive to build with multiple compilers?
-* clang static analyzer
-	* just run scan-build command line tool? http://clang-analyzer.llvm.org/scan-build.html
-		* should build with debug for this
-* address sanitizer: may be easier with gcc: http://btorpey.github.io/blog/2014/03/27/using-clangs-address-sanitizer/
-	* prob need to build clang from source in my container with the right options
-	* can add new compiler flags via command line, just like any other cmake variable?
-	* leak sanitizer
-	* thread sanitizer
-	* memory sanitizer
-* compile with gcc using gcov
-	* use jenkins "sidebar link" plugin to privide link from job page to gcov html output?
-* create new user for jenkins w/ github access (who can do this? ask at standup?)
-* valgrind? how to use with ctest? http://stackoverflow.com/questions/9303711/how-do-i-make-ctest-run-a-program-with-valgrind-without-dart
-* cccc plugin?
-* xunit w/ ctest? http://stackoverflow.com/questions/21633716/producing-ctest-results-in-jenkins-xunit-1-58
-* dry plugin: needs proprietary tools?
-* tasks plugin: looks for todos?
