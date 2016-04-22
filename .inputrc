@@ -3,8 +3,11 @@ set completion-ignore-case On
 set editing-mode vi
 
 $if mode=vi
+  set keymap-vi-command
+  "\C-x(": start-kbd-macro
+  "\C-x)": end-kbd-macro
+  "\C-xe": call-last-kbd-macro
   set keymap-vi-insert
-  "dk": vi-movement-mode
   "kd": vi-movement-mode
   "\C-p": history-search-backward
   "\C-n": history-search-forward
@@ -24,4 +27,5 @@ $if mode=vi
   "\C-x(": start-kbd-macro
   "\C-x)": end-kbd-macro
   "\C-xe": call-last-kbd-macro
+  "\e\C-h": backward-kill-word
 $endif
