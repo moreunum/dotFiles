@@ -1,10 +1,12 @@
 set completion-ignore-case On
 
-set -o vi
+set editing-mode vi
 
 $if mode=vi
   set keymap-vi-insert
-  "jj": vi-movement-mode
+  "dk": vi-movement-mode
+  "kd": vi-movement-mode
   "\C-p": history-search-backward
   "\C-n": history-search-forward
+  "\C-x\C-r": re-read-init-file
 $endif
