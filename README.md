@@ -113,6 +113,10 @@
   * use modifiers to move multiple times at once:
     * M-2, C-M-] s  - move back two s
   * M-y: cycle through previously yanked
+  * open current command in $EDITOR: C-x C-e
+    * open previous command: fc
+* vim
+  * execute macro on every line:  :'<,'>norm @q
     
 ===================================================
 * code analysis:
