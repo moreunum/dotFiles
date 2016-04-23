@@ -8,7 +8,8 @@ $if mode=vi
   "\C-x)": end-kbd-macro
   "\C-xe": call-last-kbd-macro
   set keymap-vi-insert
-  "kd": vi-movement-mode
+  #"kd": vi-movement-mode
+  "\C-i": vi-movement-mode
   "\C-p": history-search-backward
   "\C-n": history-search-forward
   "\C-x\C-r": re-read-init-file
