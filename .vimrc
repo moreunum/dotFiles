@@ -95,7 +95,11 @@ nmap <C-t> :FZF <CR>
 " YCM 
 set completeopt-=preview " don't show preview window at top of screen
 let g:ycm_server_log_level = 'debug'
-"let g:loaded_youcompleteme = 1 "remove this to turn on YCM
+let g:loaded_youcompleteme = 1 "enable this to turn off YCM
+
+" omni-complete
+"filetype plugin on
+"set omnifunc=syntaxcomplete#Complete
 
 " rtags
 let g:rtagsUseDefaultMappings=0

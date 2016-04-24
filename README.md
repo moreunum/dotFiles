@@ -117,7 +117,25 @@
     * open previous command: fc
 * vim
   * execute macro on every line:  :'<,'>norm @q
-    
+  * visual select join
+  * visual-in-paragraph
+  * search or colon, then paste the word the cursor is on: C-r C-w
+  * primitive dev environment:
+    * ctags, omni-complete
+    * make, quick-fix
+    * [<TAB> to jump to class/global definitions (just simple text search)
+    * gf - go to file
+* gdb
+  * convenience variables
+    * set $m = (MyStruct*)malloc(sizeof(MyStruct))    \*
+    * call $m->add(1,2)
+    * p $m->x
+    * set $m = malloc(10)
+    * call strcpy($m, "string")
+    * call free($m)
+    * set $ms = "my string"
+    * set $m3 = {0,1,2,3}
+
 ===================================================
 * code analysis:
   * high-level
